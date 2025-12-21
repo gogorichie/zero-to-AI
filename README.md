@@ -4,6 +4,8 @@ An educational series to take students from "zero" to hands-on AI skills.
 
 Empower students to understand and build AI solutions.
 
+Alternative name: zero-to-AI-with-PY
+
 ---
 
 ## Summary
@@ -27,9 +29,9 @@ Empower students to understand and build AI solutions.
 
 ## Timeline
 
-- Content to be created in January 2026
+- Content to be created in January 2026 by Chris
   - I have most of the code already available
-- Sessions start in February, finish in April
+- Sessions start in February, finish in April, delivered by Chris
 - 30-minute sessions, 2x a week, 5:30pm EST Tuesday & Thursday
 - 19 sessions = 10 weeks
 
@@ -57,7 +59,7 @@ Empower students to understand and build AI solutions.
   - Storage, Search, Cosmos, etc
 - Leverage read-only keys for the students
 - Share the read-only keys in Teams, and rotate them as necessary
-- Share keys in the form of a ".env" file, easily readable by Python
+- Share keys in the form of an ".env" file easily readable by Python
 
 ---
 
@@ -65,7 +67,7 @@ Empower students to understand and build AI solutions.
 
 One 30-minute meeting for each topic listed below.
 
-### The Basics (8 sessions)
+### Part 1: The Basics (8 sessions)
 
 - Git and GitHub
   - account creation, installation, git pull, git push, branching, PRs
@@ -83,7 +85,7 @@ One 30-minute meeting for each topic listed below.
 - VSC, GitHub Copilot, Cursor
   - learn AI from AI
 
-### Foundational Azure Services (5 sessions)
+### Part 2: Foundational Azure Services (5 sessions)
 
 - Azure Storage - containers and blobs
 - Azure Foundry - models
@@ -91,7 +93,7 @@ One 30-minute meeting for each topic listed below.
 - Azure CosmosDB - NoSQL, SQL queries, and semantic/vector search
 - Azure Search - fluent and semantic/vector search
 
-### AI (6 sessions)
+### Part 3: AI (6 sessions)
 
 - PDF to Markdown with Azure Document Intelligence
   - Chunking of the Markdown
