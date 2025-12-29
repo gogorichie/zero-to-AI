@@ -19,6 +19,7 @@
 **/lib/
 **/lib64/
 **/man/
+**/meta/
 **/node_modules/
 **/obj/
 **/out/
@@ -30,6 +31,7 @@
 **/*.class
 **/*.jar
 **/pyvenv.cfg
+
 **/.override.properties*
 
 # Terraform
@@ -41,6 +43,7 @@
 *.tfstate
 *.tfstate.*
 
+**/private.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

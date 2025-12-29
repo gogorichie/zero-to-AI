@@ -27,22 +27,32 @@
 - Introduce you to Application Development with Git, GitHub, and Python
 - Introduce you to the most relevant Azure PaaS Services for AI
 - Introduce you to AI
-- "Teach you to Fish"
+- **"Teach you to Fish"** in ~20 **bite-size** lessons/sessions
+
+## Why did I volunteer to create and teach this course?
+
+- I've seen the need, at Microsoft, for technical enablement amongst my peers
+- I see the same need at 3Cloud
+- Hands-on enablement in Python and AI can unleash your understanding, skills, value, success
+- To put us in a better position to understand and serve our customers
 
 ## Series Content - GitHub, Teams Meetings, Teams Channel
 
-- Primitive markdown content, and simplest-possible Python code
+- All content will be in GitHub, for your reference
+- Primitive markdown content (like this page), and the simplest-possible Python code
 - A mix of concepts and hands-on; more hands-on
+  - Description, Topics, Images, Demonstration, Links, and Pro Tips
 - Minimal number of hyperlinks to external content
 - No flashy PowerPoint presentations
 - We'll record each Teams meeting for your reference
 
 ## Each Session
 
-- "Bite-size" 30-minute Teams meetings
+- A "Bite-size" 30-minute Teams meetings
 - First five minutes for Q&A from previous Session
 - Next 15-20 minutes for presentation and demonstration
 - Last 5-10 minutes for questions and discussion
+- Post your questions in the Teams meeting chat
 
 ## Let's build a Learning Community in Teams
 
@@ -71,6 +81,8 @@
 - Please stay engaged, don't drop out if you feel you're falling behind
 - There will be time to catch up
 - Please excute the sample programs in the lessons; hands-on is important for learning
+- Be curious
+- Lean forward, engage, ask questions
 
 ## Out of Scope
 
@@ -82,5 +94,10 @@
 - Other programming languages
 - A Certificate or exam at the end of the series; just learn
 
-## In Summary, the Goal is to "Teach you to Fish"
+## In Summary, the Goal is to **"Teach you to Fish" regarding AI, with Python**
 
+--img| prepared-salmon-meal.jpg
+--img| fishing-pole.png
+--img| woman-smiling-with-fish.jpg
+--img| man-smiling-with-fish.jpg
+# =============================================================================

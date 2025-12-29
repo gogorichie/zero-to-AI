@@ -8,13 +8,13 @@ The goal is to **empower students to build AI solutions.**
 
 # Series Outline
 
-Version 2025-12-29a
+Version 2025-12-29b
 
 ## Part 1 - The Basics
 
 - 0 [Preparing for this Series](docs/session-preparing-for-this-series.md)
 - 1 [Git and GitHub](docs/session-git-and-github.md)
-- 2 [Installing Python, Python Tooling, Virtual Environments](docs/session-installing-python-python-tooling-virtual-environments.md)
+- 2 [Installing Python and Tooling](docs/session-installing-python-and-tooling.md)
 - 3 [A Python CLI Program](docs/session-a-python-cli-program.md)
 - 4 [A Python UI app with Streamlit](docs/session-a-python-ui-app-with-streamlit.md)
 - 5 [Data Wrangling](docs/session-data-wrangling.md)
