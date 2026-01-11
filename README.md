@@ -8,7 +8,7 @@ The goal is to **empower students to build AI solutions.**
 
 # Series Outline
 
-Version 2026-01-10b
+Version 2026-01-11b
 
 ## Part 1 - The Basics
 
@@ -18,7 +18,7 @@ Version 2026-01-10b
 -  3  -  [A Python CLI (Command Line Interface) Program](docs/session-a-python-cli-program.md)
 -  4  -  [A Python UI app with Streamlit](docs/session-a-python-ui-app-with-streamlit.md)
 -  5  -  [Data Wrangling](docs/session-data-wrangling.md)
--  6  -  [Notebooks, Jupyter, Notebooks, Dataframes, Pandas, DuckDB](docs/session-jupyter-notebooks.md)
+-  6  -  [Notebooks, Jupyter, Dataframes, Pandas](docs/session-jupyter-notebooks.md)
 -  7  -  [Unit Testing and Datatypes](docs/session-unit-testing-and-datatypes.md)
 -  8  -  [IDEs and Tooling - VSC, GitHub Copilot, Cursor](docs/session-ides-cursor.md)
 
@@ -38,3 +38,9 @@ Version 2026-01-10b
 -  17  -  [Azure Agent Framework](docs/session-azure-agent-framework.md)
 -  18  -  [A Complete AI App](docs/session-a-complete-ai-app.md)
 -  19  -  [Your Turn, Create Something!](docs/session-your-turn-create-something!.md)
+
+<br><br><br><br><br><br>
+
+```
+Chris Joakim, 3Cloud/Cognizant, 2026
+```

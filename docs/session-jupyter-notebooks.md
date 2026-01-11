@@ -25,13 +25,13 @@
 #### Jupyter in a Browser
 
 <p align="center">
-   <img src="img/jupyter-in-browser.png" width="80%">
+   <img src="img/jupyter-in-browser.png" width="90%">
 </p>
 
 #### Jupyter in Cursor
 
 <p align="center">
-   <img src="img/jupyter-in-cursor.png" width="80%">
+   <img src="img/jupyter-in-cursor.png" width="90%">
 </p>
 
 <br><br><br>
@@ -77,7 +77,7 @@
 - See https://wesmckinney.com/book/
 
 <p align="center">
-   <img src="img/python-for-data-analysis.jpg" width="60%">
+   <img src="img/python-for-data-analysis.jpg" width="33%">
 </p>
 
 <br><br><br>
