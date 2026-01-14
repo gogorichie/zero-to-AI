@@ -58,6 +58,7 @@ jobs:
           echo "${{ steps.pylint.outputs.pylint_output }}"
           exit 1
         else
-          echo "Pylint passed with no errors (output length: 0 lines)."
+          echo "Pylint passed with no errors (output length: ${line_count:-unknown} lines)."
+          echo "${{ steps.pylint.outputs.pylint_output }}"
           exit 0
         fi
