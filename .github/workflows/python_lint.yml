@@ -46,7 +46,7 @@ jobs:
         echo "$pylint_output" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
         echo "line_count=$line_count" >> $GITHUB_OUTPUT
-        echo "Pylint output line count: $line_count"
+        #echo "Pylint output line count: $line_count"
         echo "$pylint_output"
         
     - name: Check pylint results
