@@ -28,7 +28,7 @@ from dotenv import load_dotenv
 from geopy.geocoders import Nominatim
 
 from src.io.fs import FS
-from src.os.env import Env
+#from src.os.env import Env
 
 
 def print_options():
@@ -279,7 +279,7 @@ def is_valid_iata_code(iata_code: str) -> bool:
 if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:
-            print_options("Error: no CLI args provided")
+            print_options()
         else:
             func = sys.argv[1].lower()
             if func == "postal_codes_nc":
