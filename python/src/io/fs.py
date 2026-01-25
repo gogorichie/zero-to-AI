@@ -8,11 +8,10 @@ from typing import Iterator
 
 # This class is used to interact with the local filesystem,
 # such as reading and writing text, csv, and json files.
-# Chris Joakim, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 class FS:
-
     @classmethod
     def as_unix_filename(cls, filename: str) -> str:
         """Return the given filename with unix slashes, and without Windows C:"""
@@ -52,9 +51,7 @@ class FS:
         return None
 
     @classmethod
-    def walk(
-        cls, directory: str, include_dirs=[], include_types=[]
-    ) -> list[dict] | None:
+    def walk(cls, directory: str, include_dirs=[], include_types=[]) -> list[dict] | None:
         """
         Recursively walk the given directory and return a list of dicts;
         one for each file that matches the given include_dirs and include_types.
@@ -172,9 +169,7 @@ class FS:
         return None
 
     @classmethod
-    def text_file_iterator(
-        cls, infile: str, encoding="utf-8", mode="rt"
-    ) -> Iterator[str] | None:
+    def text_file_iterator(cls, infile: str, encoding="utf-8", mode="rt") -> Iterator[str] | None:
         """Return a line generator that can be iterated with iterate()"""
         if os.path.isfile(infile):
             with open(file=infile, encoding=encoding, mode=mode) as file:

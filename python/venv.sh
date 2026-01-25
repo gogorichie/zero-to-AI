@@ -26,7 +26,8 @@ uv pip install --editable .
 echo "Creating a requirements.txt file for users of pip instead of uv ..."
 uv pip compile pyproject.toml -o requirements.txt
 
-# uv tree
+uv tree > data/uv/uv-tree.txt
 
 echo "Listing the installed libraries ..."
+uv pip list > data/uv/uv-pip-list.txt
 uv pip list

@@ -3,7 +3,7 @@ from numbers import Number
 # This class is used to calculate KB, MB, GB, TB, PB, and EB values
 # from a given number of bytes.  It also provides as_xxx() translation
 # methods.
-# Chris Joakim, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 class Bytes:

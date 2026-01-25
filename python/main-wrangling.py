@@ -6,6 +6,11 @@ Usage:
     python main-wrangling.py imdb
     python main-wrangling.py openflights
     python main-wrangling.py augment_openflights_airports
+    python main-wrangling.py gen_pypi_download_lib_json_script
+    python main-wrangling.py explore_downloaded_pypi_libs
+    python main-wrangling.py create_cosmosdb_pypi_lib_documents
+    python main-wrangling.py add_embeddings_to_cosmosdb_documents
+    python main-wrangling.py uv_parse
 Options:
   -h --help     Show this screen.
   --version     Show version.
@@ -13,11 +18,15 @@ Options:
 
 # Chris Joakim, 3Cloud/Cognizant, 2026
 
+import asyncio
 import json
+import logging
 import sys
 import os
 import time
 import traceback
+import uuid
+
 from typing import Any
 
 import duckdb
@@ -27,8 +36,11 @@ from dotenv import load_dotenv
 
 from geopy.geocoders import Nominatim
 
+from src.ai.aoai_util import AOAIUtil
 from src.io.fs import FS
 from src.os.env import Env
+from src.util.counter import Counter
+from src.util.uv_parser import UVParser
 
 
 def print_options():
@@ -275,12 +287,169 @@ def is_valid_iata_code(iata_code: str) -> bool:
     print(f"is_valid_iata_code: {iata_code} -> {result}")
     return result
 
+def gen_pypi_download_lib_json_script():
+    pip_list_lines = FS.read_lines("data/uv/uv-pip-list.txt")
+    lib_names = list[str]()
+    script_lines = list[str]()
+    script_lines.append("#!/bin/bash")
+    script_lines.append("")
+    script_lines.append("# This script downloads the JSON metadata for each library in the uv-pip-list.txt file.")
+    script_lines.append("# It then saves the JSON to a library-specific file in the data/pypi directory.")
+    script_lines.append("# Chris Joakim, 3Cloud/Cognizant, 2026")
+    script_lines.append("")
+
+    in_data = False
+    for pip_line in pip_list_lines:
+        if in_data:
+            tokens = pip_line.strip().split()
+            lib_names.append(tokens[0].strip())
+        if "----------" in pip_line:
+            in_data = True
+
+    FS.write_json(lib_names, "data/pypi/pypi_lib_names.json")
+
+    lib_count = len(lib_names)
+    for idx, name in enumerate(sorted(lib_names)):
+        script_lines.append(f"echo \"{idx+1}/{lib_count}: {name}\"")
+        script_lines.append(f"curl -s -L https://pypi.python.org/pypi/{name}/json | jq > data/pypi_libs/{name}.json")
+        script_lines.append("sleep 1")
+        script_lines.append("")
+
+    script_lines.append("")
+    FS.write_lines(script_lines, "pypi_download_lib_json.sh")
+
+def explore_downloaded_pypi_libs():
+    """
+    Explore the downloaded JSON files in the data/pypi_libs directory.
+    """
+    files = FS.list_files_in_dir("data/pypi_libs")
+    c = Counter()
+    for idx, file in enumerate(sorted(files)):
+        try:
+            infile = f"data/pypi_libs/{file}"
+            data = FS.read_json(infile)
+            print(f"{idx+1}/{len(files)}: {file}")
+
+            for key in data.keys():
+                c.increment(key)
+            for key in data["info"].keys():
+                c.increment(f"info/{key}")
+        except Exception as e:
+            print(f"Error: {e} on file: {file}")
+            print(traceback.format_exc())
+
+    FS.write_json(c.get_data(), "data/pypi/pypi_libs_attr_counter.json")
+
+
+async def create_cosmosdb_pypi_lib_documents():
+    """
+    Create CosmosDB documents from the downloaded JSON files in the data/pypi_libs directory.
+    """
+    files = FS.list_files_in_dir("data/pypi_libs")
+
+    for idx, file in enumerate(sorted(files)):
+        try:
+            if idx < 999999:
+                infile = f"data/pypi_libs/{file}"
+                data = FS.read_json(infile)
+                doc = dict()
+                name = data["info"]["name"]
+                #doc["id"] = <-- can be automatically populated by cosmosdb
+                doc["id"] = None
+                doc["pk"] = "pypi"
+                doc["name"] = name
+                doc["author"] = str(data["info"]["author"])
+                doc["author_email"] = str(data["info"]["author_email"])
+                classifiers = data["info"]["classifiers"]
+                doc["classifiers"] = prune_classifiers(classifiers)
+                doc["description"] = str(data["info"]["description"])[0:1000]
+                doc["docs_url"] = str(data["info"]["docs_url"])
+                doc["downloads"] = str(data["info"]["downloads"])
+                doc["home_page"] = str(data["info"]["home_page"])
+                doc["keywords"] = str(data["info"]["keywords"])
+                doc["maintainer"] = str(data["info"]["maintainer"])
+                doc["maintainer_email"] = str(data["info"]["maintainer_email"])
+                doc["requires_python"] = str(data["info"]["requires_python"])
+                doc["summary"] = str(data["info"]["summary"])
+                doc["version"] = str(data["info"]["version"])
+                doc["release_count"] = len(data["releases"])
+
+                model_max_context_length = 8192
+                doc = truncate_cosmosdb_document(doc, model_max_context_length)
+                if len(json.dumps(doc)) > model_max_context_length:
+                    raise Exception(f"Document is too long: {name}")
+                doc["id"] = str(uuid.uuid4())
+                FS.write_json(doc, f"data/cosmosdb/{name}.json", sort_keys=False)
+        except Exception as e:
+            print(f"Error: {e} on name: {name}")
+            print(traceback.format_exc())
+
+def prune_classifiers(classifiers: list) -> list:
+    if isinstance(classifiers, list):
+        new_list = list()
+        for classifier in classifiers:
+            if "Intended Audience" in classifier:
+                new_list.append(classifier)
+            elif "Topic" in classifier:
+                new_list.append(classifier)
+            elif "Development Status" in classifier:
+                new_list.append(classifier)
+        return new_list
+    else:
+        return list()
+
+
+async def add_embeddings_to_cosmosdb_documents():
+    ai_util = AOAIUtil() 
+    files = FS.list_files_in_dir("data/cosmosdb")
+    for idx, file in enumerate(sorted(files)):
+        try:
+            if idx < 999999:
+                infile = f"data/cosmosdb/{file}"
+                doc = FS.read_json(infile)
+                if "embedding" not in doc.keys():
+                    print(f"Generating embedding for {infile}")
+                    id = doc["id"]
+                    doc["id"] = ""  # not appropriate for semantic search
+                    jstr = json.dumps(doc, sort_keys=False)
+                    doc["embedding"] = await ai_util.generate_embeddings(jstr)
+                    doc["id"] = id
+                    FS.write_json(doc, infile, sort_keys=False)
+                    asyncio.sleep(4.0)  # to avoid LLM throttling and 429 errors
+        except Exception as e:
+            print(f"Error: {e} on infile: {infile}")
+            print(traceback.format_exc())
+
+
+def truncate_cosmosdb_document(doc: dict, max_length: int) -> dict:
+    jstr_len = len(json.dumps(doc))
+    continue_to_process, loop_count = True, 0
+    while continue_to_process:
+        loop_count = loop_count + 1
+        jstr = json.dumps(doc)
+        if len(jstr) > max_length:
+            doc.popitem("classifiers")
+        if loop_count > 5:
+            continue_to_process = False
+    return doc
+
+async def uv_parse():
+    try:
+        uv_parser = UVParser()
+        leaf_nodes = uv_parser.parse_tree()
+        FS.write_json(leaf_nodes, "data/uv/uv-tree-nodes.json")
+    except Exception as e:
+        print(f"Error: {e}")
+        print(traceback.format_exc())   
+
 
 if __name__ == "__main__":
     try:
         if len(sys.argv) < 2:
             print_options()
         else:
+            load_dotenv(override=True)
+            logging.getLogger().setLevel(logging.WARNING)
             func = sys.argv[1].lower()
             if func == "postal_codes_nc":
                 postal_codes_nc()
@@ -290,6 +459,16 @@ if __name__ == "__main__":
                 openflights()
             elif func == "augment_openflights_airports":
                 augment_openflights_airports()
+            elif func == "gen_pypi_download_lib_json_script":
+                gen_pypi_download_lib_json_script()
+            elif func == "explore_downloaded_pypi_libs":
+                explore_downloaded_pypi_libs()
+            elif func == "create_cosmosdb_pypi_lib_documents":
+                asyncio.run(create_cosmosdb_pypi_lib_documents())
+            elif func == "add_embeddings_to_cosmosdb_documents":
+                asyncio.run(add_embeddings_to_cosmosdb_documents())
+            elif func == "uv_parse":
+                asyncio.run(uv_parse())
             else:
                 print_options()
     except Exception as e:

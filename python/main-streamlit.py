@@ -54,24 +54,28 @@ fake = Faker()
 
 # Helper Functions
 
+
 def as_float(s):
     try:
         return float(s.strip())
     except ValueError:
         return 0.0
 
+
 # Create the UI, using the st.session_state values.
 # The values in the UI are mutable by user interaction in the browser,
 # but not by changing the st.session_state values directly with code.
 # See 'st.rerun()'below to trigger an update of the UI.
 
-tab_names = "Stock Price Chart,Simulated Chat,Pace Calculator,Run/Walk Calculator,Streamlit Session State".split(",")
+tab_names = "Stock Price Chart,Simulated Chat,Pace Calculator,Run/Walk Calculator,Streamlit Session State".split(
+    ","
+)
 tab1, tab2, tab3, tab4, tab5 = st.tabs(tab_names)
 
 with tab1:
     st.header("Stock Price Chart")
-    num_months = st.slider('Number of Months', min_value=10, max_value=100)
-    if st.button('Line Chart'):
+    num_months = st.slider("Number of Months", min_value=10, max_value=100)
+    if st.button("Line Chart"):
         st.session_state["stock_prices"] = [random.randint(450, 600) for _ in range(num_months)]
         st.line_chart(data=st.session_state["stock_prices"])
 
@@ -99,7 +103,7 @@ with tab2:
             message_placeholder = st.empty()
             full_response = ""
             # Simulate a streaming response for better user experience
-            #assistant_response = f"You said: {prompt} ...interesting."
+            # assistant_response = f"You said: {prompt} ...interesting."
             assistant_response = fake.sentence()
             for chunk in assistant_response.split():
                 full_response += chunk + " "
@@ -107,7 +111,7 @@ with tab2:
                 # Add a blinking cursor to simulate typing
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
-        
+
         # Add assistant response to chat history
         st.session_state.chat_messages.append({"role": "assistant", "content": full_response})
 
@@ -117,10 +121,13 @@ with tab3:
     with st.form(key="pace_calc_form"):
         dist_input = st.text_input("Distance:", key="pace_dist")
         pace_unit_of_distance = st.selectbox(
-            "Unit of Distance (miles, kilometers, yards)",("m", "k", "y"))
+            "Unit of Distance (miles, kilometers, yards)", ("m", "k", "y")
+        )
         etime_input = st.text_input("Elapsed Time (hh:mm:ss format):", key="pace_etime")
         dist2_input = st.text_input("Distance 2 (optional):", key="pace_dist2")
-        calc_textarea = st.text_area("Calculation:", key="pace_calculation", height=370) # height is in pixels
+        calc_textarea = st.text_area(
+            "Calculation:", key="pace_calculation", height=370
+        )  # height is in pixels
         pace_calculate_button = st.form_submit_button("Calculate")
 
     if pace_calculate_button:
@@ -146,7 +153,7 @@ with tab3:
         calculation["spm"] = s1.seconds_per_mile()
         if d2 is not None:
             calculation["dist2"] = dist2
-            calculation["dist2_proj_time"]  = s1.projected_time(d2, "riegel") # Riegel algorithm
+            calculation["dist2_proj_time"] = s1.projected_time(d2, "riegel")  # Riegel algorithm
             calculation["dist2_proj_miles"] = d2.as_miles()
 
         # IMPORTANT: Trigger a redraw the UI with the current st.session_state values!
@@ -164,9 +171,12 @@ with tab4:
 
         rw_dist_input = st.text_input("Distance:", key="rw_dist")
         rw_unit_of_distance = st.selectbox(
-            "Unit of Distance (miles, kilometers, yards)",("m", "k", "y"))
+            "Unit of Distance (miles, kilometers, yards)", ("m", "k", "y")
+        )
 
-        calc_textarea = st.text_area("Calculation:", key="rw_calculation", height=300) # height is in pixels
+        calc_textarea = st.text_area(
+            "Calculation:", key="rw_calculation", height=300
+        )  # height is in pixels
         rw_calculate_button = st.form_submit_button("Calculate")
 
     if rw_calculate_button:
@@ -178,11 +188,8 @@ with tab4:
         walk_pace = st.session_state["rw_walk_pace"].strip()
 
         calculation = m26.RunWalkCalculator.calculate(
-            run_time,
-            run_pace,
-            walk_time,
-            walk_pace,
-            dist)
+            run_time, run_pace, walk_time, walk_pace, dist
+        )
         calculation["dist"] = dist
         calculation["proj_miles"] = d.as_miles()
         calculation["miles"] = d.as_miles()

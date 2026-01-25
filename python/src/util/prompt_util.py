@@ -1,18 +1,18 @@
 # System utility to parse out the system and user prompts
 # from the lines of an annotatedtext file with lines such as
 # ROLE-SYSTEM: and ROLE-USER:
-# Chris Joakim, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
+
 
 class PromptUtil:
-
     def __init__(self, lines: list[str] = []):
         self.lines = lines
 
     def get_system_prompt(self) -> str:
-        return self.get_prompt_section("ROLE-SYSTEM") 
+        return self.get_prompt_section("ROLE-SYSTEM")
 
     def get_user_prompt(self) -> str:
-         return self.get_prompt_section("ROLE-USER") 
+        return self.get_prompt_section("ROLE-USER")
 
     def get_prompt_section(self, section: str) -> str:
         in_section, section_lines = False, list()
@@ -23,5 +23,5 @@ class PromptUtil:
                 section_lines.append(line.strip())
             if line.startswith(section):
                 in_section = True
-                
+
         return "\n".join(section_lines).strip()

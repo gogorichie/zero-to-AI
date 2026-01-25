@@ -8,7 +8,7 @@ The goal is to **empower students to build AI solutions.**
 
 # Series Outline
 
-Version 2026-01-12b
+Version 2026-01-25b
 
 ## Part 1 - The Basics
 
@@ -19,7 +19,7 @@ Version 2026-01-12b
 -  4  -  [A Python UI app with Streamlit](docs/session-a-python-ui-app-with-streamlit.md)
 -  5  -  [Data Wrangling](docs/session-data-wrangling.md)
 -  6  -  [Notebooks, Jupyter, Dataframes, Pandas](docs/session-jupyter-notebooks.md)
--  7  -  [Unit Testing and Datatypes](docs/session-unit-testing-and-datatypes.md)
+-  7  -  [Unit Testing, CI/CD. and Python Datatypes](docs/session-unit-testing-and-datatypes.md)
 -  8  -  [IDEs and Tooling - VSC, GitHub Copilot, Cursor](docs/session-ides-cursor.md)
 
 ## Part 2 - Foundational Azure Services
@@ -52,7 +52,7 @@ Version 2026-01-12b
 | Tue 2026-02-17 | A Python UI app with Streamlit |
 | Thu 2026-02-19 | Data Wrangling |
 | Tue 2026-02-24 | Notebooks, Jupyter, Dataframes, Pandas |
-| Thu 2026-02-26 | Unit Testing and Datatypes |
+| Thu 2026-02-26 | Unit Testing, CI/CD. and Python Datatypes |
 | Tue 2026-03-03 | IDEs and Tooling - VSC, GitHub Copilot, Cursor |
 | Thu 2026-03-05 | Azure Storage |
 | Tue 2026-03-10 | Azure Foundry, Deploying Models/LLMs, Tokens, Throughput |

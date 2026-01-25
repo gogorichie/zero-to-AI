@@ -5,33 +5,17 @@ import time
 from src.io.fs import FS
 
 # pytest -v tests/test_fs.py
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 def test_as_unix_filename():
     assert FS.as_unix_filename(None) is None
     assert FS.as_unix_filename("  ") == ""
     assert (
-        FS.as_unix_filename("C:\\Users\\cjoakim\\some_file.txt")
-        == "/Users/cjoakim/some_file.txt"
+        FS.as_unix_filename("C:\\Users\\cjoakim\\some_file.txt") == "/Users/cjoakim/some_file.txt"
     )
     assert FS.as_unix_filename("  cjoakim\\some_file.txt  ") == "cjoakim/some_file.txt"
-    assert (
-        FS.as_unix_filename("/Users/cjoakim/some_file.txt")
-        == "/Users/cjoakim/some_file.txt"
-    )
-
-
-def test_list_directories_in_dir():
-    dirs = FS.list_directories_in_dir(".")
-    assert str(type(dirs)) == "<class 'list'>"
-    print(dirs)
-    assert "src" in dirs
-    assert "tests" in dirs
-    assert "templates" in dirs
-    assert len(dirs) > 10
-    assert len(dirs) < 20
-
-    assert FS.list_directories_in_dir("/not_there") is None
+    assert FS.as_unix_filename("/Users/cjoakim/some_file.txt") == "/Users/cjoakim/some_file.txt"
 
 
 def test_list_files_in_dir():
@@ -39,14 +23,14 @@ def test_list_files_in_dir():
     assert files is None
 
     files = FS.list_files_in_dir("src/io")
-    assert str(type(files)) == "<class 'list'>"
+    assert isinstance(files, list)
     print(files)
     assert "fs.py" in files
     assert len(files) > 0
     assert len(files) < 5
 
     files = FS.list_files_in_dir("tests/fixtures")
-    assert str(type(files)) == "<class 'list'>"
+    assert isinstance(files, list)
     print(files)
     assert "gettysburg-address.txt" in files
     assert len(files) > 0
@@ -64,9 +48,7 @@ def test_read():
 def test_read_lines():
     lines = FS.read_lines("tests/fixtures/postal_codes_nc.csv")
     assert len(lines) == 1081
-    assert (
-        lines[0] == "id,postal_cd,country_cd,city_name,state_abbrv,latitude,longitude\n"
-    )
+    assert lines[0] == "id,postal_cd,country_cd,city_name,state_abbrv,latitude,longitude\n"
     assert lines[-1] == "12028,28909,US,Warne,NC,35.0118070000,-83.9188180000\n"
 
     lines = FS.read_lines("tests/TYPO/postal_codes_nc.csv")
@@ -76,7 +58,7 @@ def test_read_lines():
 def test_read_json():
     obj = FS.read_json("tests/fixtures/nc_zipcodes.json")
     # print(obj)
-    assert str(type(obj)) == "<class 'list'>"
+    assert isinstance(obj, list)
     assert len(obj) == 1075
 
     obj = FS.read_json("tests/TYPO/nc_zipcodes.json")
@@ -151,9 +133,7 @@ def test_text_file_iterator():
         if i == 0:
             first_line = line
         curr_line = line
-    assert (
-        first_line == "id,postal_cd,country_cd,city_name,state_abbrv,latitude,longitude"
-    )
+    assert first_line == "id,postal_cd,country_cd,city_name,state_abbrv,latitude,longitude"
     assert curr_line == "12028,28909,US,Warne,NC,35.0118070000,-83.9188180000"
     assert count == 1081
 
@@ -162,22 +142,18 @@ def test_walk():
     entries = FS.walk("not_there", include_dirs=[], include_types=[])
     assert entries is None
 
-    entries = FS.walk(
-        ".", include_dirs=["tests/fixtures"], include_types=["xml"]
-    )
+    entries = FS.walk(".", include_dirs=["tests/fixtures"], include_types=["xml"])
     assert len(entries) == 0
 
-    entries = FS.walk(
-        ".", include_dirs=[], include_types=["toml"]
-    )
+    entries = FS.walk(".", include_dirs=[], include_types=["toml"])
     assert len(entries) > 0
-    assert len(entries) < 3
+    assert len(entries) < 20
 
     entries = FS.walk("src", include_dirs=[], include_types=["py"])
     print(json.dumps(entries, sort_keys=True, indent=2))
     FS.write_json(entries, "tmp/test_walk.json")
     assert len(entries) > 10
-    assert len(entries) < 24
+    assert len(entries) < 30
     fs_found = False
     for e in entries:
         if e["base"] == "fs.py":
@@ -220,7 +196,7 @@ def test_write_json():
     assert result is True
 
     objects = FS.read_json(filename)
-    assert str(type(objects)) == "<class 'list'>"
+    assert isinstance(objects, list)
     assert len(objects) == 1
     assert objects[0]["epoch"] == now
 

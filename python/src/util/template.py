@@ -3,7 +3,7 @@ import jinja2
 # Generic class for rendering jinja2 text templates,
 # which are assumed to be in the templates/ directory.
 # See https://jinja.palletsprojects.com/en/stable/
-# Chris Joakim, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 class Template:
@@ -30,6 +30,4 @@ class Template:
         Private method to return a jinja2 Environment object for the
         given root_dir.
         """
-        return jinja2.Environment(
-            loader=jinja2.FileSystemLoader(root_dir), autoescape=False
-        )
+        return jinja2.Environment(loader=jinja2.FileSystemLoader(root_dir), autoescape=False)

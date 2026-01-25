@@ -7,15 +7,14 @@ from src.os.system import System
 
 # This class is used to read the host environment variables.
 # It also has methods for command-line flag argument processing.
-# Chris Joakim, 3Cloud, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 class Env:
-
     @classmethod
     def envvar(cls, name: str, default=None) -> str | None:
         """
-        Return the value of the given environment variable name, 
+        Return the value of the given environment variable name,
         or the given default value.
         """
         if name in os.environ:
@@ -37,7 +36,7 @@ class Env:
 
     @classmethod
     def azure_env_prefix(cls) -> str:
-        """ 
+        """
         Return the prefix for project-specific AZURE environment variables,
         which is used in the above azure_envvar() method.
         """
@@ -74,61 +73,6 @@ class Env:
         """
         return "--verbose" in sys.argv
 
-    # MongoDB and Cosmos DB Mongo API methods below 
-
-    @classmethod
-    def mongodb_conn_str(cls) -> str:
-        return cls.envvar("MONGO_CONN_STR", None)
-
-    # Azure PostgreSQL and SQLAlchemy methods below
-
-    @classmethod
-    def azure_pg_connection_str(cls):
-        """
-        Create and return the connection string for your Azure
-        PostgreSQL database per the AZURE_xxx environment variables.
-        """
-        return "host={} port={} dbname={} user={} password={} ".format(
-            cls.azure_pg_flex_server(),
-            cls.azure_pg_flex_port(),
-            cls.azure_pg_flex_db(),
-            cls.azure_pg_flex_user(),
-            cls.azure_pg_flex_pass(),
-        )
-
-    @classmethod
-    def azure_pg_sqlalchemy_engine_url(cls) -> str:
-        """
-        Create and return a SQLAlchemy engine URL for your PostgreSQL database.
-        The return value can be passed to the SQLAlchemy create_engine() function.
-        """
-         # "postgresql+psycopg2://user:password@hostname:port/database_name")
-        return "postgresql+psycopg://{}:{}@{}:{}/{}".format(
-            cls.azure_pg_flex_user(),
-            cls.azure_pg_flex_pass(),
-            cls.azure_pg_flex_server(),
-            cls.azure_pg_flex_port(),
-            cls.azure_pg_flex_db(),
-        )
-
-    @classmethod
-    def azure_pg_sqlalchemy_pool_size(cls) -> str:
-        return int(cls.azure_envvar("AZURE_PG_SQLALCHEMY_POOL_SIZE", "3"))
-    
-    @classmethod
-    def azure_pg_sqlalchemy_max_overflow(cls) -> str:
-        return int(cls.azure_envvar("AZURE_PG_SQLALCHEMY_MAX_OVERFLOW", "0"))
- 
-    # Redis methods below
-
-    @classmethod
-    def redis_host(cls) -> str:
-        return cls.envvar("REDIS_HOST", "127.0.0.1")
-
-    @classmethod
-    def redis_port(cls) -> str:
-        return cls.envvar("REDIS_PORT", "6379")
-
     # Azure Document Intelligence methods below
 
     def document_intelligence_supported_filetypes() -> list[str]:
@@ -149,49 +93,6 @@ class Env:
         for key in sorted(cls.standard_env_vars().keys()):
             value = cls.envvar(key)
             logging.warning("envvar: {} -> {}".format(key, value))
-        return True
-
-    @classmethod
-    def standard_env_vars(cls) -> dict:
-        d = dict()
-        d["AZURE_COSMOSDB_NOSQL_ACCT"] = "AZURE_COSMOS DB NoSQL account name"
-        d["AZURE_COSMOSDB_NOSQL_URI"] = "AZURE_COSMOS DB NoSQL account URI"
-        d["AZURE_COSMOSDB_NOSQL_KEY"] = "AZURE_COSMOS DB NoSQL account key"
-        d["AZURE_COSMOSDB_NOSQL_AUTHTYPE"] = "Authentication mechanism; key or rbac."
-        d["AZURE_COSMOSDB_NOSQL_DEFAULT_DB"] = "AZURE_COSMOS DB NoSQL default database"
-        d["AZURE_COSMOSDB_NOSQL_DEFAULT_CONTAINER"] = (
-            "AZURE_COSMOS DB NoSQL default container"
-        )
-        d["LOG_LEVEL"] = "A standard python or java logging level name."
-        d["MONGO_CONN_STR"] = (
-            "MongoDB connection string for MongoDB or Cosmos DB Mongo vCore, or the emulator"
-        )
-        d["REDIS_HOST"] = "Redis Cache host, defaults to 127.0.0.1"
-        d["REDIS_PORT"] = "Redis Cache port, defaults to 6379"
-        return d
-
-    @classmethod
-    def set_unit_testing_environment(cls):
-        """
-        This method is for uniting-testing purposed only.
-        It sets sys.argv, and certain environment variables
-        for consistent test results.
-        See test_env.py for example usage.
-        """
-        os.environ["AZURE_COSMOSDB_NOSQL_AUTHTYPE"] = "key"
-        os.environ["AZURE_COSMOSDB_NOSQL_DEFAULT_DB"] = "dev"
-        os.environ["AZURE_COSMOSDB_NOSQL_DEFAULT_CONTAINER"] = "test"
-        os.environ["MONGO_CONN_STR"] = "emulator"
-        os.environ["REDIS_HOST"] = "127.0.0.1"
-        os.environ["REDIS_PORT"] = "6379"
-
-        sys.argv.append("--some-flag")
-        sys.argv.append("--some-int")
-        sys.argv.append("42")
-        sys.argv.append("--some-float")
-        sys.argv.append("3.1415926")
-        sys.argv.append("--some-float")
-        sys.argv.append("--verbose")
         return True
 
     # Generated AZURE environment variable methods below.
@@ -223,34 +124,6 @@ class Env:
         return cls.azure_envvar("AZURE_AI_SEARCH_VERSION", "2025-09-01")
 
     @classmethod
-    def azure_app_insights_app(cls) -> str:
-        return cls.azure_envvar("AZURE_APP_INSIGHTS_APP", None)
-
-    @classmethod
-    def azure_app_insights_connection_string(cls) -> str:
-        return cls.azure_envvar("AZURE_APP_INSIGHTS_CONNECTION_STRING", None)
-
-    @classmethod
-    def azure_app_insights_instrumentation_key(cls) -> str:
-        return cls.azure_envvar("AZURE_APP_INSIGHTS_INSTRUMENTATION_KEY", None)
-
-    @classmethod
-    def azure_app_insights_key(cls) -> str:
-        return cls.azure_envvar("AZURE_APP_INSIGHTS_KEY", None)
-
-    @classmethod
-    def azure_cosmosdb_emulator_acct(cls) -> str:
-        return cls.azure_envvar("AZURE_COSMOSDB_EMULATOR_ACCT", "localhost:8081")
-
-    @classmethod
-    def azure_cosmosdb_emulator_key(cls) -> str:
-        return cls.azure_envvar("AZURE_COSMOSDB_EMULATOR_KEY", "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==")
-
-    @classmethod
-    def azure_cosmosdb_emulator_uri(cls) -> str:
-        return cls.azure_envvar("AZURE_COSMOSDB_EMULATOR_URI", "https://localhost:8081/")
-
-    @classmethod
     def azure_cosmosdb_nosql_acct(cls) -> str:
         return cls.azure_envvar("AZURE_COSMOSDB_NOSQL_ACCT", None)
 
@@ -273,10 +146,6 @@ class Env:
     @classmethod
     def azure_default_region(cls) -> str:
         return cls.azure_envvar("AZURE_DEFAULT_REGION", "eastus")
-
-    @classmethod
-    def azure_directory(cls) -> str:
-        return cls.azure_envvar("AZURE_DIRECTORY", None)
 
     @classmethod
     def azure_docintel_acct(cls) -> str:
@@ -315,10 +184,6 @@ class Env:
         return cls.azure_envvar("AZURE_FOUNDRY_KEY", None)
 
     @classmethod
-    def azure_foundry_key2(cls) -> str:
-        return cls.azure_envvar("AZURE_FOUNDRY_KEY2", None)
-
-    @classmethod
     def azure_foundry_name(cls) -> str:
         return cls.azure_envvar("AZURE_FOUNDRY_NAME", None)
 
@@ -335,16 +200,12 @@ class Env:
         return cls.azure_envvar("AZURE_FOUNDRY_OAI_URL", None)
 
     @classmethod
-    def azure_foundry_oai_whisperapi_url(cls) -> str:
-        return cls.azure_envvar("AZURE_FOUNDRY_OAI_WHISPERAPI_URL", None)
-
-    @classmethod
     def azure_foundry_openai_url(cls) -> str:
         return cls.azure_envvar("AZURE_FOUNDRY_OPENAI_URL", None)
 
     @classmethod
-    def azure_foundry_project1_key(cls) -> str:
-        return cls.azure_envvar("AZURE_FOUNDRY_PROJECT1_KEY", None)
+    def azure_foundry_project_key(cls) -> str:
+        return cls.azure_envvar("AZURE_FOUNDRY_PROJECT_KEY", None)
 
     @classmethod
     def azure_foundry_project_key(cls) -> str:
@@ -399,10 +260,6 @@ class Env:
         return cls.azure_envvar("AZURE_LANGSERVICE_URL", None)
 
     @classmethod
-    def azure_mongo_utils_data_dir(cls) -> str:
-        return cls.azure_envvar("AZURE_MONGO_UTILS_DATA_DIR", None)
-
-    @classmethod
     def azure_openai_completions_dep(cls) -> str:
         return cls.azure_envvar("AZURE_OPENAI_COMPLETIONS_DEP", None)
 
@@ -443,46 +300,6 @@ class Env:
         return cls.azure_envvar("AZURE_OPENAI_URL", None)
 
     @classmethod
-    def azure_pg_flex_db(cls) -> str:
-        return cls.azure_envvar("AZURE_PG_FLEX_DB", None)
-
-    @classmethod
-    def azure_pg_flex_pass(cls) -> str:
-        return cls.azure_envvar("AZURE_PG_FLEX_PASS", None)
-
-    @classmethod
-    def azure_pg_flex_port(cls) -> str:
-        return cls.azure_envvar("AZURE_PG_FLEX_PORT", "5432")
-
-    @classmethod
-    def azure_pg_flex_server(cls) -> str:
-        return cls.azure_envvar("AZURE_PG_FLEX_SERVER", None)
-
-    @classmethod
-    def azure_pg_flex_user(cls) -> str:
-        return cls.azure_envvar("AZURE_PG_FLEX_USER", None)
-
-    @classmethod
-    def azure_rediscache_conn_string(cls) -> str:
-        return cls.azure_envvar("AZURE_REDISCACHE_CONN_STRING", None)
-
-    @classmethod
-    def azure_rediscache_host(cls) -> str:
-        return cls.azure_envvar("AZURE_REDISCACHE_HOST", None)
-
-    @classmethod
-    def azure_rediscache_key(cls) -> str:
-        return cls.azure_envvar("AZURE_REDISCACHE_KEY", None)
-
-    @classmethod
-    def azure_rediscache_namespace(cls) -> str:
-        return cls.azure_envvar("AZURE_REDISCACHE_NAMESPACE", None)
-
-    @classmethod
-    def azure_rediscache_port(cls) -> str:
-        return cls.azure_envvar("AZURE_REDISCACHE_PORT", "6380")
-
-    @classmethod
     def azure_rg(cls) -> str:
         return cls.azure_envvar("AZURE_RG", None)
 
@@ -505,3 +322,24 @@ class Env:
     @classmethod
     def azure_subscription_name(cls) -> str:
         return cls.azure_envvar("AZURE_SUBSCRIPTION_NAME", None)
+
+    @classmethod
+    def set_unit_testing_environment(cls) -> str:
+        """
+        This method is for uniting-testing purposed only.
+        It sets sys.argv, and certain environment variables
+        for consistent test results.
+        See test_env.py for example usage.
+        """
+        os.environ["AZURE_COSMOSDB_NOSQL_AUTHTYPE"] = "key"
+        # os.environ["AZURE_COSMOSDB_NOSQL_DEFAULT_DB"] = "dev"
+        # os.environ["AZURE_COSMOSDB_NOSQL_DEFAULT_CONTAINER"] = "test"
+
+        sys.argv.append("--some-flag")
+        sys.argv.append("--some-int")
+        sys.argv.append("42")
+        sys.argv.append("--some-float")
+        sys.argv.append("3.1415926")
+        sys.argv.append("--some-float")
+        sys.argv.append("--verbose")
+        return True

@@ -1,6 +1,6 @@
 # This class implements a simple key-based integer counter
 # using an underlying dict object.
-# Chris Joakim, 2025
+# Chris Joakim, 3Cloud/Cognizant, 2026
 
 
 class Counter:

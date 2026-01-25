@@ -1,0 +1,8 @@
+{
+  "name": "nosql-libraries",
+  "dataSourceName": "cosmosdb-nosql-dev-libraries",
+  "targetIndexName": "nosql-libraries",
+  "schedule": {
+    "interval": "PT12H"
+  }
+}

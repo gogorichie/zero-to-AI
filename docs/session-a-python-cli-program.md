@@ -29,6 +29,22 @@ This session uses file **main-cli-sample.py** as our Python CLI program.
 Python is a relatively simple language, and this sample program
 goes far in demonstrating the core concepts of the language.
 
+<br><br><br>
+---
+<br><br><br>
+
+## Wait, do I need to know Python immediately!?
+
+**No!  Learn at your own pace, in time.  Please absorb what you can now.**
+
+Resource like the following can be helpful.
+
+- [Real Python Cheat Sheet](https://realpython.com/cheatsheets/python/)
+
+<p align="center">
+   <img src="img/python-cheatsheet.jpeg" width="60%">
+</p>
+
 
 <br><br><br>
 ---

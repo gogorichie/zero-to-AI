@@ -200,6 +200,8 @@ In order to achieve the above primary goal, we will, in this sequence:
 - **Execute the lesson samples yourself, and look at the code**
 - Be curious, lean forward, engage, learn
 - Help each other learn.  Form your own small study groups if you'd like to
+- **Please don't stress about not understanding everything at first.  You will, in time.**
+  - You will learn at your own pace, and in your own way, after this series.
 
 <br><br><br>
 ---
