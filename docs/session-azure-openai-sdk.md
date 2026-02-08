@@ -308,12 +308,6 @@ async def generate_embedding():
 > a user or application has sent too many requests to a server within a given timeframe,
 > triggering rate limiting. 
 
-### Rate Limiting
-
-- Rate limiting is a technique to limit the number of requests to the Azure OpenAI service
-- It's a common practice to limit the number of requests to the Azure OpenAI service
-- It's a common practice to limit the number of requests to the Azure OpenAI service
-
 <br><br><br>
 ---
 <br><br><br>
