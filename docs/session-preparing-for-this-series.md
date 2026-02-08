@@ -1,5 +1,6 @@
 # Part 1, Session 0 - Preparing for this Series
 
+<br><br>
 
 ## Who are we, and what's our objective?
 

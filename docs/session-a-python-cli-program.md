@@ -1,5 +1,6 @@
 # Part 1, Session 3 - A Python CLI (Command Line Interface) Program
 
+<br><br>
 
 ## In this session we'll cover the following topics:
 
@@ -81,9 +82,9 @@ The program uses the **docopt** library for this.
 
 It's important give users of your program instructions on how to use it.
 
-We define our help content in a multi-line string comment at the top of the file.
+We define our help content in a multi-line string comment at the **top of the file**.
 
-Python multi-line string values begin with three double quotes (""") and end with three double quotes (""").
+Python **multi-line string values** begin with three double quotes (""") and end with three double quotes (""").
 
 <br><br><br>
 ---
@@ -333,6 +334,45 @@ if __name__ == "__main__":  # __main__ is execute when the program is run from t
         print(traceback.format_exc())  # print the traceback, or stack trace
 
 ```
+
+<br><br><br>
+---
+<br><br><br>
+
+## Pro Tip #1 - Use the "Python Shell" to explore the language
+
+- Just type "python" in your project (with virtual environment activated)
+- Type python code line-by-line 
+- See the output of the code as you type it
+- Enter "exit()" and the Enter key when you're done
+
+<p align="center">
+   <img src="img/python-shell.png" width="90%">
+</p>
+
+<br><br><br>
+---
+<br><br><br>
+
+## Pro Tip #2 - Use "Vibe Learning"
+
+Ask your AI assistant in your IDE (i.e. - Cursor, VSC, etc.) to explain the code.
+
+Prompt:
+
+```
+In file main-cli-sample.py, what does "sys.argv[2:]" mean on line 46?
+```
+
+<p align="center">
+   <img src="img/cursor-explain-code.png" width="90%">
+</p>
+
+<br><br>
+
+Do you remember this from Session 0?
+
+> Prediction: You will learn more from AI (i.e. - Cursor) than from Chris
 
 <br><br><br>
 ---

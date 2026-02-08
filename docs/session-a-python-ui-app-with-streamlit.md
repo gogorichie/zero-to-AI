@@ -1,5 +1,7 @@
 # Part 1, Session 4 - A Python UI app with Streamlit
 
+<br><br>
+
 The purpose of this session is just to introduce you to Streamlit,
 and to show you "the art of the possible" regarding creating Data & AI Web UI applications.
 

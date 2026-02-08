@@ -1,8 +1,10 @@
 # Part 1, Session 2 - Installing Python and Tooling
 
-<br>
+<br><br>
 
 **This may be the most important session in this series, as it will enable you to be successful with this series, and with Python and AI in general.**
+
+Please get Python and uv installed on your computer in the days ahead.
 
 <br>
 
@@ -20,17 +22,21 @@
 ## What are "Package Managers"?
 
 - **They allow you to define, then reconcile and install, the third-party libraries in your project**
-
+- **The Python ecosystem has a huge number of third-party libraries/packages**
+  - See **PyPI (Python Package Index)** at https://pypi.org
 - For example, if you want to use Azure Cosmos DB and Azure Storage in your project
   - Defined, in this series, in the **pyproject.toml file** - discussed below
-- Current python options are pip, poetry, **uv**, and others
+  - See [azure-cosmos @ pypi](https://pypi.org/project/azure-cosmos/)
+  - See [azure-storage @ pypi](https://pypi.org/project/azure-storage/)
+- Current python package manageroptions are pip, poetry, **uv**, and others
   - This variety of options is typical of open-source
 - They determine and resolve the **Dependency Graph** for you 
-  - Your app uses Library A 
+  - For example, your app uses Library A 
   - Library A uses Library B 
   - Library B uses Library C
   - Library D also uses Library C
-  - etc, etc, etc.
+  - So download A, B, C, and D from PyPI
+  - And use the version of C that is compatible with B and D
   - The dependency graph also includes **the version of each library to use**
 - They download the resolved set of dependencies
 - **"Dependency Hell"** is where you have incompatible library versions.  For example:
@@ -49,6 +55,8 @@
 - This is a modern and **very fast python project manager**, written in Rust
 - It is much faster than the pip tool
 - **uv is used by Microsoft for their Azure SDKs for Python**
+  - See [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+  - See the sdk directory in the above repository; it contains many SDKs!
 - [What is UV?](https://docs.astral.sh/uv/)
 - [Installation Instructions](https://docs.astral.sh/uv/getting-started/installation/)
   - Several options are shown there, use the one you're most comfortable with
@@ -62,18 +70,24 @@ See https://docs.astral.sh/uv/getting-started/installation/#winget
 winget install --id=astral-sh.uv  -e
 ```
 
+<br><br>
+
 ### ruff 
 
+- **Optionally install ruff if you'd like** - it's not required in this series
 - An extremely fast Python **linter and code formatter**, written in Rust
   - A linter checks the code for syntax errors
 - ruff is a sibling tool to uv, also from Astral
 - I use it to reformat my code 
   - See the **code-reformat.ps1** and **code-reformat.sh** scripts in this repository
   - It's a good idea for Development teams to use a standard code style, reduces friction
-- **Optionally install ruff if you'd like** - it's not required in this series
 - [Overview](https://docs.astral.sh/ruff/)
 - [Installation Instructions](https://docs.astral.sh/ruff/installation/)
   - Several options are shown there, use the one you're most comfortable with
+
+```
+winget install -e --id astral-sh.ruff
+```
 
 <br><br><br>
 ---
@@ -87,6 +101,7 @@ winget install --id=astral-sh.uv  -e
   - The python [venv module](https://docs.python.org/3/library/venv.html) is the standard way to create a virtual environments
   - The [uv program has a venv command](https://docs.astral.sh/uv/pip/environments/) to create a virtual environment
     - **We will use uv venv in this series.**
+  - The **venv.ps1** and **venv.sh** scripts in this repository create a virtual environment for you
 
 <br><br><br>
 ---
@@ -132,11 +147,30 @@ Note: The **venv.ps1** (Windows PowerShell) and **venv.sh** (macOS/Linus bash)
 scripts in this repository execute the last several commands shown above.
 You can copy and reuse these scripts in your own projects (I do).
 
+Note: The **activate.ps1** (Windows PowerShell) and **activate.sh** (macOS/Linus bash)
+scripts in this repository can be used to activate the virtual environment.
+You can copy and reuse these scripts in your own projects (I do).
+
+Note: If you're on Windows, and you're using PowerShell, you may need to enable 
+ps1 script execution, with the following command. 
+
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Windows PowerShell scripts end with the .ps1 extension, while 
+macOS/Linux bash scripts end with the .sh extension.
+
+<br><br><br>
+---
+<br><br><br>
+
 ### Wait, when do you create and activate a python virtual environment?
 
 #### Create 
 
-- You should create a virtual environment when you start a new project
+- You should **create** a virtual environment when you start a new project
+- Or start using a project for the first time (i.e. - this zero-to-AI/python project)
 - Or when your project's dependencies change
 
 #### Activate
@@ -153,9 +187,41 @@ You can copy and reuse these scripts in your own projects (I do).
 
 - Install Python and uv as described in this session
 - Run the above demonstration on your computer
-- Post this message into Teams: "Installed Python and uv, and ran the demonstration!"
+  - Execute the **venv.ps1** or **venv.sh** scripts in this repository
+  - Execute the **activate.ps1** or **activate.sh** scripts in this repository
+  - Execute "python main.py --help"
+- Post this message into the Teams Channel: "Installed Python and uv, and ran the demonstration!"
   - This will enable us to know that the group is successful
-  - Reach out in Teams if you get stuck
+  - Reach out in the Teams Channel if you get stuck
+
+### What if I see something like this?
+
+It's ok.
+
+There seems to be an issue the docopt library that creates the first few 
+error lines when the virtual environment is used for the first time. 
+
+The "IndexError: list index out of range" part error is caused by 
+not providing enough command-line arguments to the main.py program.
+
+```
+python main.py
+
+/Users/cjoakim/github/zero-to-AI/python/.venv/lib/python3.14/site-packages/docopt.py:165: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+  name = re.findall('(<\S*?>)', source)[0]
+/Users/cjoakim/github/zero-to-AI/python/.venv/lib/python3.14/site-packages/docopt.py:166: SyntaxWarning: "\[" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\["? A raw string is also an option.
+  value = re.findall('\[default: (.*)\]', source, flags=re.I)
+/Users/cjoakim/github/zero-to-AI/python/.venv/lib/python3.14/site-packages/docopt.py:207: SyntaxWarning: "\[" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\["? A raw string is also an option.
+  matched = re.findall('\[default: (.*)\]', description, flags=re.I)
+/Users/cjoakim/github/zero-to-AI/python/.venv/lib/python3.14/site-packages/docopt.py:456: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+  split = re.split('\n *(<\S+?>|-\S+?)', doc)[1:]
+list index out of range
+Traceback (most recent call last):
+  File "/Users/cjoakim/github/zero-to-AI/python/main.py", line 93, in <module>
+    func = sys.argv[1].lower()
+           ~~~~~~~~^^^
+IndexError: list index out of range
+```
 
 <br><br><br>
 ---
@@ -172,7 +238,7 @@ You can copy and reuse these scripts in your own projects (I do).
   - **FastAPI**, **FastMCP**, **SQLAlchemy**, etc.
   - See [PyPI (Python Package Index)](https://pypi.org) for these libraries
 
-See file python/pyproject.toml in this repository.
+See file **python/pyproject.toml** in this repository.
 
 Note that you can optionally specify specific versions of the libraries you use.
 
@@ -269,7 +335,9 @@ ignore = ["E722"]
 ## uv library list 
 
 You can run command **uv pip list** to see the list of libraries installed in your virtual environment
-for this series.  This list will evolve over time, but you should see similar results.
+for this series.
+
+This list will evolve over time as the course is developed,but you should see similar results.
 
 ```
 $ uv pip list
@@ -468,7 +536,7 @@ websockets                               15.0.1
 widgetsnbextension                       4.0.15
 wrapt                                    1.17.3
 yarl                                     1.22.0
-zero-to-ai                               0.1.0        /Users/cjoakim/github/zero-to-AI-private/python
+zero-to-ai                               0.1.0        /Users/cjoakim/github/zero-to-AI/python
 zipp                                     3.23.0
 ```
 

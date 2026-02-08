@@ -37,7 +37,7 @@ The goal is to <strong>empower students to build AI solutions.</strong>
 ## Part 2 - Foundational Azure Services
 
 -  9  -  [Azure Storage](docs/session-azure-storage.md)
--  10  -  [Azure Foundry, Deploying Models/LLMs, Tokens, Throughput](docs/session-azure-foundry-llms-tokens-throughput.md)
+-  10  -  [Models, Catalogs, Tokens, Prompts, Foundry](docs/session-models-catalogs-tokens-prompts-foundry.md)
 -  11  -  [Azure OpenAI SDK](docs/session-azure-openai-sdk.md)
 -  12  -  [Azure CosmosDB](docs/session-azure-cosmosdb.md)
 -  13  -  [Azure Search](docs/session-azure-search.md)
@@ -57,7 +57,6 @@ Notes:
 - Some of these sessions are currently a work-in-progress
 - All content is subject to updates
 - The Python code is in a working state and is reasonably complete
-- Some macOS bash scripts (*.sh) are not yet ported to Windows PowerShell scripts (*.ps1)
 
 <br><br>
 

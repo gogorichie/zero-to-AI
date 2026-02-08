@@ -1,5 +1,6 @@
 # Part 1, Session 6 - Notebooks, Jupyter, Dataframes, Pandas
 
+<br><br>
 
 ## The "Notebook" programming paradigm
 

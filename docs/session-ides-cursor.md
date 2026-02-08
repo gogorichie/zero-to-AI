@@ -1,5 +1,6 @@
 # Part 1, Session 8 - IDEs and Tooling - VSC, GitHub Copilot, Cursor
 
+<br><br>
 
 ## Significant Changes in IT in my Career
 

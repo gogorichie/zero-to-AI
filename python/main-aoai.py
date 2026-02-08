@@ -2,6 +2,7 @@
 Usage:
   python main-aoai.py <func>
   python main-aoai.py check_env
+  python main-aoai.py tokens mary had a little lamb
   python main-aoai.py generate_embedding
   python main-aoai.py generate_completion
   python main-aoai.py generate_completion_with_md_prompt
@@ -23,6 +24,8 @@ from docopt import docopt
 from dotenv import load_dotenv
 
 import openai
+import tiktoken
+
 from openai import AzureOpenAI
 from openai.types import CreateEmbeddingResponse
 from openai.types.chat.chat_completion import ChatCompletion
@@ -45,14 +48,18 @@ async def check_env():
             print("{}: {}".format(name, os.environ[name]))
 
 
-async def generate_embedding():
-    ai_util = AOAIUtil()
-    embedding = await ai_util.generate_embeddings("Hello, world!")
-    print(embedding)
+async def tokens():
+    #print("sys.argv:   {}".format(sys.argv))
+    sentence = " ".join(sys.argv[2:])
+    print("sentence:   {}".format(sentence))
+    encoding = tiktoken.encoding_for_model("gpt-4o-mini")
+    tokens = encoding.encode(sentence)
+    print("tokens:     {}".format(tokens))
+    print("num_tokens: {}".format(len(tokens)))
 
 
 async def generate_completion():
-    ai_util = AOAIUtil()
+    ai_util = AOAIUtil()  # See module python/src/ai/aoai_util.py in this repository
     system_context = "You are a helpful assistant who knows Major League Baseball."
     user_prompt = "What uniform number did Mickey Mantle wear?"
     completion = await ai_util.generate_completion(system_context, user_prompt)
@@ -88,6 +95,11 @@ def generate_embedding_original():
     # Model:  text-embedding-ada-002
     # Usage:  Usage(prompt_tokens=9, total_tokens=9)
     # Length: 1536
+
+async def generate_embedding():
+    ai_util = AOAIUtil()
+    embedding = await ai_util.generate_embeddings("Consulting companies like 3Cloud and Cognizant")
+    print(embedding)
 
 
 def generate_completion_original():
@@ -191,6 +203,8 @@ async def main():
         func = sys.argv[1].lower()
         if func == "check_env":
             await check_env()
+        elif func == "tokens":
+            await tokens()
         elif func == "generate_embedding":
             await generate_embedding()
         elif func == "generate_completion":

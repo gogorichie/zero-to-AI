@@ -1,6 +1,6 @@
 # Part 1, Session 7 - Unit Testing, CI/CD. and Python Datatypes
 
-<br><br><br>
+<br><br>
 
 ## How do you know that your code works?
 

@@ -1,9 +1,11 @@
 # Part 2, Session 9 - Azure Storage
 
+<br><br>
 
 ## What is Azure Storage?
 
 - [Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction)
+- It's a **PaaS** service, Platform as a Service
 - Think of it as a **cloud-based filesystem**
 - High Availability
 - Lowest Cost Storage Option compared to Databases
@@ -15,6 +17,19 @@
 - The blobs can contain optional metadata attributes
   - For example, the email address of who uploaded the file
   - For example, some correlation ID or other unique identifier
+
+### Wait, what's a PaaS service?
+
+> Platform as a Service (PaaS) is a cloud computing model that provides a turnkey,
+> virtualized environment for developers to build, deploy, and manage applications
+> over a network (public or private). 
+
+In short:
+- You can't access the underlying infrastructure - virtual machines, disks, etc
+- You specify the location, type, scale (throughput), and configuration - the cloud provider does the rest
+- You access the service via an API or SDK, via networking endpoints and keys/credentials
+  - Keys or Identities or RBAC (Role Based Access Control) are used for authentication and authorization
+
 
 <br><br><br>
 

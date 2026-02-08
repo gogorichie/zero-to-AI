@@ -1,8 +1,6 @@
 # Part 1, Session 1 - Git and GitHub
 
-<br><br><br>
----
-<br><br><br>
+<br><br>
 
 ## Wait, why are we talking about Git and GitHub?
 
