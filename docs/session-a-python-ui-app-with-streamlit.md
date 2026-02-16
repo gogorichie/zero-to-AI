@@ -13,6 +13,38 @@ We'll also cover **PyPI**, the Python Package Index, in this session.
 
 <br><br><br>
 
+## But First, Toon
+
+A recent change to this library caused a **"dependency hell"** error described
+in a previous session.
+
+I've changed the **pyproject.toml** file to use the **python-toon** library instead
+of the **toon-python** library, because it was removed from PyPi!  
+This is unusual, but it happens.
+
+https://pypi.org/project/toon-python/   (This library was removed from PyPi)
+
+This project might change again soon, to use the **toons** library instead.
+Stay tuned!
+
+We'll explore the **toon data format** in the data-wrangling session next week.
+
+### What do you need to do?
+
+Get the latest code from this repository as follows:
+
+```
+cd <your root directory for this series>
+
+git reset --hard             # This abandons your current pending changes; resets git to the last commit
+
+git pull                     # This fetches the latest code from the remote repository
+```
+
+See the **Pro Tip - Get familiar with PyPI, and choose your dependencies wisely** section below.
+
+<br><br><br>
+
 ## Streamlit
 
 - **Streamlit is a python library to easily create Data & AI Web UI applications**
