@@ -29,6 +29,7 @@ The goal is to <strong>empower students to build AI solutions.</strong>
 -  2  -  [Installing Python and Tooling](docs/session-installing-python-and-tooling.md)
 -  3  -  [A Python CLI (Command Line Interface) Program](docs/session-a-python-cli-program.md)
 -  4  -  [A Python UI app with Streamlit](docs/session-not-available.md)
+-  CLB -  [Command Line Basics and Catch-up Session](docs/session-not-available.md)
 -  5  -  [Data Wrangling](docs/session-not-available.md)
 -  6  -  [Notebooks, Jupyter, Dataframes, Pandas](docs/session-not-available.md)
 -  7  -  [Unit Testing, CI/CD. and Python Datatypes](docs/session-not-available.md)
@@ -48,8 +49,7 @@ The goal is to <strong>empower students to build AI solutions.</strong>
 -  15  -  [Knowledge Graphs](docs/session-not-available.md)
 -  16  -  [MCP, the Model Context Protocol](docs/session-not-available.md)
 -  17  -  [Azure Agent Framework](docs/session-not-available.md)
--  18  -  [A Complete AI App](docs/session-not-available.md)
--  19  -  [Your Turn, Create Something!](docs/session-not-available.md)
+-  18  -  [Your Turn, Create Something!](docs/session-not-available.md)
 
 <br>
 
@@ -69,21 +69,21 @@ Notes:
 | Tue 2026-02-10 | Installing Python and Tooling |
 | Thu 2026-02-12 | A Python CLI (Command Line Interface) Program |
 | Tue 2026-02-17 | A Python UI app with Streamlit |
-| Thu 2026-02-19 | Data Wrangling |
-| Tue 2026-02-24 | Notebooks, Jupyter, Dataframes, Pandas |
-| Thu 2026-02-26 | Unit Testing, CI/CD. and Python Datatypes |
-| Tue 2026-03-03 | IDEs and Tooling - VSC, GitHub Copilot, Cursor |
-| Thu 2026-03-05 | Azure Storage |
-| Tue 2026-03-10 | Azure Foundry, Deploying Models/LLMs, Tokens, Throughput |
-| Thu 2026-03-12 | Azure OpenAI SDK |
-| Tue 2026-03-17 | Azure CosmosDB |
-| Thu 2026-03-19 | Azure Search |
-| Tue 2026-03-24 | PDF to Markdown with Azure Document Intelligence |
-| Thu 2026-03-26 | Knowledge Graphs |
-| Tue 2026-03-31 | MCP, the Model Context Protocol |
-| Thu 2026-04-02 | Azure Agent Framework |
-| Tue 2026-04-07 | A Complete AI App |
-| Thu 2026-04-09 | Your Turn, Create Something! |
+| Thu 2026-02-19 | Command Line Basics and Catch-up Session |
+| Thu 2026-02-24 | Data Wrangling |
+| Tue 2026-02-26 | Notebooks, Jupyter, Dataframes, Pandas |
+| Thu 2026-03-03 | Unit Testing, CI/CD. and Python Datatypes |
+| Tue 2026-03-05 | IDEs and Tooling - VSC, GitHub Copilot, Cursor |
+| Thu 2026-03-10 | Azure Storage |
+| Tue 2026-03-12 | Azure Foundry, Deploying Models/LLMs, Tokens, Throughput |
+| Thu 2026-03-17 | Azure OpenAI SDK |
+| Tue 2026-03-19 | Azure CosmosDB |
+| Thu 2026-03-24 | Azure Search |
+| Tue 2026-03-26 | PDF to Markdown with Azure Document Intelligence |
+| Thu 2026-03-31 | Knowledge Graphs |
+| Tue 2026-04-02 | MCP, the Model Context Protocol |
+| Thu 2026-04-07 | Azure Agent Framework |
+| Tue 2026-04-09 | Your Turn, Create Something! |
 
 <br><br>
 ---
