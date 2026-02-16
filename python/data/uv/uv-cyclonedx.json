@@ -2,21 +2,27 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:d3ae60f4-f919-45cf-acac-60a8b6433c49",
+  "serialNumber": "urn:uuid:e91ebf93-5326-4c33-9485-795da588ac59",
   "metadata": {
-    "timestamp": "2026-02-08T16:25:42.468967000Z",
+    "timestamp": "2026-02-16T21:26:29.376317000Z",
     "tools": [
       {
         "vendor": "Astral Software Inc.",
         "name": "uv",
-        "version": "0.9.28"
+        "version": "0.10.3"
       }
     ],
     "component": {
       "type": "library",
       "bom-ref": "zero-to-ai-1@1.0.0",
       "name": "zero-to-ai",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "properties": [
+        {
+          "name": "uv:package:is_project_root",
+          "value": "true"
+        }
+      ]
     }
   },
   "components": [
@@ -1660,14 +1666,21 @@
     },
     {
       "type": "library",
-      "bom-ref": "pytz-230@2025.2",
+      "bom-ref": "python-toon-230@0.1.3",
+      "name": "python-toon",
+      "version": "0.1.3",
+      "purl": "pkg:pypi/python-toon@0.1.3"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pytz-231@2025.2",
       "name": "pytz",
       "version": "2025.2",
       "purl": "pkg:pypi/pytz@2025.2"
     },
     {
       "type": "library",
-      "bom-ref": "pywin32-231@311",
+      "bom-ref": "pywin32-232@311",
       "name": "pywin32",
       "version": "311",
       "purl": "pkg:pypi/pywin32@311",
@@ -1680,7 +1693,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pywin32-ctypes-232@0.2.3",
+      "bom-ref": "pywin32-ctypes-233@0.2.3",
       "name": "pywin32-ctypes",
       "version": "0.2.3",
       "purl": "pkg:pypi/pywin32-ctypes@0.2.3",
@@ -1693,7 +1706,7 @@
     },
     {
       "type": "library",
-      "bom-ref": "pywinpty-233@3.0.2",
+      "bom-ref": "pywinpty-234@3.0.2",
       "name": "pywinpty",
       "version": "3.0.2",
       "purl": "pkg:pypi/pywinpty@3.0.2",
@@ -1706,126 +1719,126 @@
     },
     {
       "type": "library",
-      "bom-ref": "pyyaml-234@6.0.3",
+      "bom-ref": "pyyaml-235@6.0.3",
       "name": "pyyaml",
       "version": "6.0.3",
       "purl": "pkg:pypi/pyyaml@6.0.3"
     },
     {
       "type": "library",
-      "bom-ref": "pyzmq-235@27.1.0",
+      "bom-ref": "pyzmq-236@27.1.0",
       "name": "pyzmq",
       "version": "27.1.0",
       "purl": "pkg:pypi/pyzmq@27.1.0"
     },
     {
       "type": "library",
-      "bom-ref": "rdflib-236@7.5.0",
+      "bom-ref": "rdflib-237@7.5.0",
       "name": "rdflib",
       "version": "7.5.0",
       "purl": "pkg:pypi/rdflib@7.5.0"
     },
     {
       "type": "library",
-      "bom-ref": "redis-237@7.1.0",
+      "bom-ref": "redis-238@7.1.0",
       "name": "redis",
       "version": "7.1.0",
       "purl": "pkg:pypi/redis@7.1.0"
     },
     {
       "type": "library",
-      "bom-ref": "referencing-238@0.36.2",
+      "bom-ref": "referencing-239@0.36.2",
       "name": "referencing",
       "version": "0.36.2",
       "purl": "pkg:pypi/referencing@0.36.2"
     },
     {
       "type": "library",
-      "bom-ref": "regex-239@2025.11.3",
+      "bom-ref": "regex-240@2025.11.3",
       "name": "regex",
       "version": "2025.11.3",
       "purl": "pkg:pypi/regex@2025.11.3"
     },
     {
       "type": "library",
-      "bom-ref": "requests-240@2.32.5",
+      "bom-ref": "requests-241@2.32.5",
       "name": "requests",
       "version": "2.32.5",
       "purl": "pkg:pypi/requests@2.32.5"
     },
     {
       "type": "library",
-      "bom-ref": "requests-oauthlib-241@2.0.0",
+      "bom-ref": "requests-oauthlib-242@2.0.0",
       "name": "requests-oauthlib",
       "version": "2.0.0",
       "purl": "pkg:pypi/requests-oauthlib@2.0.0"
     },
     {
       "type": "library",
-      "bom-ref": "rfc3339-validator-242@0.1.4",
+      "bom-ref": "rfc3339-validator-243@0.1.4",
       "name": "rfc3339-validator",
       "version": "0.1.4",
       "purl": "pkg:pypi/rfc3339-validator@0.1.4"
     },
     {
       "type": "library",
-      "bom-ref": "rfc3986-validator-243@0.1.1",
+      "bom-ref": "rfc3986-validator-244@0.1.1",
       "name": "rfc3986-validator",
       "version": "0.1.1",
       "purl": "pkg:pypi/rfc3986-validator@0.1.1"
     },
     {
       "type": "library",
-      "bom-ref": "rfc3987-syntax-244@1.1.0",
+      "bom-ref": "rfc3987-syntax-245@1.1.0",
       "name": "rfc3987-syntax",
       "version": "1.1.0",
       "purl": "pkg:pypi/rfc3987-syntax@1.1.0"
     },
     {
       "type": "library",
-      "bom-ref": "rich-245@13.9.4",
+      "bom-ref": "rich-246@13.9.4",
       "name": "rich",
       "version": "13.9.4",
       "purl": "pkg:pypi/rich@13.9.4"
     },
     {
       "type": "library",
-      "bom-ref": "rich-rst-246@1.3.2",
+      "bom-ref": "rich-rst-247@1.3.2",
       "name": "rich-rst",
       "version": "1.3.2",
       "purl": "pkg:pypi/rich-rst@1.3.2"
     },
     {
       "type": "library",
-      "bom-ref": "rich-toolkit-247@0.17.1",
+      "bom-ref": "rich-toolkit-248@0.17.1",
       "name": "rich-toolkit",
       "version": "0.17.1",
       "purl": "pkg:pypi/rich-toolkit@0.17.1"
     },
     {
       "type": "library",
-      "bom-ref": "rignore-248@0.7.6",
+      "bom-ref": "rignore-249@0.7.6",
       "name": "rignore",
       "version": "0.7.6",
       "purl": "pkg:pypi/rignore@0.7.6"
     },
     {
       "type": "library",
-      "bom-ref": "rpds-py-249@0.30.0",
+      "bom-ref": "rpds-py-250@0.30.0",
       "name": "rpds-py",
       "version": "0.30.0",
       "purl": "pkg:pypi/rpds-py@0.30.0"
     },
     {
       "type": "library",
-      "bom-ref": "ruamel-yaml-250@0.19.1",
+      "bom-ref": "ruamel-yaml-251@0.19.1",
       "name": "ruamel-yaml",
       "version": "0.19.1",
       "purl": "pkg:pypi/ruamel-yaml@0.19.1"
     },
     {
       "type": "library",
-      "bom-ref": "secretstorage-251@3.5.0",
+      "bom-ref": "secretstorage-252@3.5.0",
       "name": "secretstorage",
       "version": "3.5.0",
       "purl": "pkg:pypi/secretstorage@3.5.0",
@@ -1838,157 +1851,150 @@
     },
     {
       "type": "library",
-      "bom-ref": "send2trash-252@1.8.3",
+      "bom-ref": "send2trash-253@1.8.3",
       "name": "send2trash",
       "version": "1.8.3",
       "purl": "pkg:pypi/send2trash@1.8.3"
     },
     {
       "type": "library",
-      "bom-ref": "sentry-sdk-253@2.50.0",
+      "bom-ref": "sentry-sdk-254@2.50.0",
       "name": "sentry-sdk",
       "version": "2.50.0",
       "purl": "pkg:pypi/sentry-sdk@2.50.0"
     },
     {
       "type": "library",
-      "bom-ref": "setuptools-254@80.9.0",
+      "bom-ref": "setuptools-255@80.9.0",
       "name": "setuptools",
       "version": "80.9.0",
       "purl": "pkg:pypi/setuptools@80.9.0"
     },
     {
       "type": "library",
-      "bom-ref": "shellingham-255@1.5.4",
+      "bom-ref": "shellingham-256@1.5.4",
       "name": "shellingham",
       "version": "1.5.4",
       "purl": "pkg:pypi/shellingham@1.5.4"
     },
     {
       "type": "library",
-      "bom-ref": "six-256@1.17.0",
+      "bom-ref": "six-257@1.17.0",
       "name": "six",
       "version": "1.17.0",
       "purl": "pkg:pypi/six@1.17.0"
     },
     {
       "type": "library",
-      "bom-ref": "smmap-257@5.0.2",
+      "bom-ref": "smmap-258@5.0.2",
       "name": "smmap",
       "version": "5.0.2",
       "purl": "pkg:pypi/smmap@5.0.2"
     },
     {
       "type": "library",
-      "bom-ref": "sniffio-258@1.3.1",
+      "bom-ref": "sniffio-259@1.3.1",
       "name": "sniffio",
       "version": "1.3.1",
       "purl": "pkg:pypi/sniffio@1.3.1"
     },
     {
       "type": "library",
-      "bom-ref": "sortedcontainers-259@2.4.0",
+      "bom-ref": "sortedcontainers-260@2.4.0",
       "name": "sortedcontainers",
       "version": "2.4.0",
       "purl": "pkg:pypi/sortedcontainers@2.4.0"
     },
     {
       "type": "library",
-      "bom-ref": "soupsieve-260@2.8.1",
+      "bom-ref": "soupsieve-261@2.8.1",
       "name": "soupsieve",
       "version": "2.8.1",
       "purl": "pkg:pypi/soupsieve@2.8.1"
     },
     {
       "type": "library",
-      "bom-ref": "sqlalchemy-261@2.0.46",
+      "bom-ref": "sqlalchemy-262@2.0.46",
       "name": "sqlalchemy",
       "version": "2.0.46",
       "purl": "pkg:pypi/sqlalchemy@2.0.46"
     },
     {
       "type": "library",
-      "bom-ref": "sqlalchemy-utils-262@0.42.1",
+      "bom-ref": "sqlalchemy-utils-263@0.42.1",
       "name": "sqlalchemy-utils",
       "version": "0.42.1",
       "purl": "pkg:pypi/sqlalchemy-utils@0.42.1"
     },
     {
       "type": "library",
-      "bom-ref": "sse-starlette-263@3.1.1",
+      "bom-ref": "sse-starlette-264@3.1.1",
       "name": "sse-starlette",
       "version": "3.1.1",
       "purl": "pkg:pypi/sse-starlette@3.1.1"
     },
     {
       "type": "library",
-      "bom-ref": "stack-data-264@0.6.3",
+      "bom-ref": "stack-data-265@0.6.3",
       "name": "stack-data",
       "version": "0.6.3",
       "purl": "pkg:pypi/stack-data@0.6.3"
     },
     {
       "type": "library",
-      "bom-ref": "starlette-265@0.50.0",
+      "bom-ref": "starlette-266@0.50.0",
       "name": "starlette",
       "version": "0.50.0",
       "purl": "pkg:pypi/starlette@0.50.0"
     },
     {
       "type": "library",
-      "bom-ref": "streamlit-266@1.52.2",
+      "bom-ref": "streamlit-267@1.52.2",
       "name": "streamlit",
       "version": "1.52.2",
       "purl": "pkg:pypi/streamlit@1.52.2"
     },
     {
       "type": "library",
-      "bom-ref": "tenacity-267@9.1.2",
+      "bom-ref": "tenacity-268@9.1.2",
       "name": "tenacity",
       "version": "9.1.2",
       "purl": "pkg:pypi/tenacity@9.1.2"
     },
     {
       "type": "library",
-      "bom-ref": "terminado-268@0.18.1",
+      "bom-ref": "terminado-269@0.18.1",
       "name": "terminado",
       "version": "0.18.1",
       "purl": "pkg:pypi/terminado@0.18.1"
     },
     {
       "type": "library",
-      "bom-ref": "tiktoken-269@0.12.0",
+      "bom-ref": "tiktoken-270@0.12.0",
       "name": "tiktoken",
       "version": "0.12.0",
       "purl": "pkg:pypi/tiktoken@0.12.0"
     },
     {
       "type": "library",
-      "bom-ref": "tinycss2-270@1.4.0",
+      "bom-ref": "tinycss2-271@1.4.0",
       "name": "tinycss2",
       "version": "1.4.0",
       "purl": "pkg:pypi/tinycss2@1.4.0"
     },
     {
       "type": "library",
-      "bom-ref": "toml-271@0.10.2",
+      "bom-ref": "toml-272@0.10.2",
       "name": "toml",
       "version": "0.10.2",
       "purl": "pkg:pypi/toml@0.10.2"
     },
     {
       "type": "library",
-      "bom-ref": "tomlkit-272@0.14.0",
+      "bom-ref": "tomlkit-273@0.14.0",
       "name": "tomlkit",
       "version": "0.14.0",
       "purl": "pkg:pypi/tomlkit@0.14.0"
-    },
-    {
-      "type": "library",
-      "bom-ref": "toon-python-273@0.1.2",
-      "name": "toon-python",
-      "version": "0.1.2",
-      "purl": "pkg:pypi/toon-python@0.1.2"
     },
     {
       "type": "library",
@@ -2206,7 +2212,7 @@
       "ref": "alembic-8@1.18.1",
       "dependsOn": [
         "mako-137@1.3.10",
-        "sqlalchemy-261@2.0.46",
+        "sqlalchemy-262@2.0.46",
         "typing-extensions-278@4.15.0"
       ]
     },
@@ -2317,7 +2323,7 @@
         "openai-162@2.14.0",
         "pandas-187@2.3.3",
         "pyjwt-218@2.10.1",
-        "ruamel-yaml-250@0.19.1"
+        "ruamel-yaml-251@0.19.1"
       ]
     },
     {
@@ -2346,7 +2352,7 @@
     {
       "ref": "azure-core-30@1.36.0",
       "dependsOn": [
-        "requests-240@2.32.5",
+        "requests-241@2.32.5",
         "typing-extensions-278@4.15.0"
       ]
     },
@@ -2462,14 +2468,14 @@
     {
       "ref": "beautifulsoup4-44@4.14.3",
       "dependsOn": [
-        "soupsieve-260@2.8.1",
+        "soupsieve-261@2.8.1",
         "typing-extensions-278@4.15.0"
       ]
     },
     {
       "ref": "bleach-45@6.3.0",
       "dependsOn": [
-        "tinycss2-270@1.4.0",
+        "tinycss2-271@1.4.0",
         "webencodings-289@0.5.1"
       ]
     },
@@ -2538,8 +2544,8 @@
       "dependsOn": [
         "attrs-21@25.4.0",
         "docstring-parser-68@0.17.0",
-        "rich-245@13.9.4",
-        "rich-rst-246@1.3.2"
+        "rich-246@13.9.4",
+        "rich-rst-247@1.3.2"
       ]
     },
     {
@@ -2611,8 +2617,8 @@
       "ref": "fakeredis-75@2.33.0",
       "dependsOn": [
         "lupa-135@2.6",
-        "redis-237@7.1.0",
-        "sortedcontainers-259@2.4.0"
+        "redis-238@7.1.0",
+        "sortedcontainers-260@2.4.0"
       ]
     },
     {
@@ -2627,7 +2633,7 @@
         "pydantic-extra-types-213@2.11.0",
         "pydantic-settings-214@2.12.0",
         "python-multipart-229@0.0.21",
-        "starlette-265@0.50.0",
+        "starlette-266@0.50.0",
         "typing-extensions-278@4.15.0",
         "uvicorn-283@0.38.0"
       ]
@@ -2636,7 +2642,7 @@
       "ref": "fastapi-cli-77@0.0.20",
       "dependsOn": [
         "fastapi-cloud-cli-78@0.11.0",
-        "rich-toolkit-247@0.17.1",
+        "rich-toolkit-248@0.17.1",
         "typer-277@0.21.1",
         "uvicorn-283@0.38.0"
       ]
@@ -2647,9 +2653,9 @@
         "fastar-79@0.8.0",
         "httpx-95@0.28.1",
         "pydantic-211@2.12.5",
-        "rich-toolkit-247@0.17.1",
-        "rignore-248@0.7.6",
-        "sentry-sdk-253@2.50.0",
+        "rich-toolkit-248@0.17.1",
+        "rignore-249@0.7.6",
+        "sentry-sdk-254@2.50.0",
         "typer-277@0.21.1",
         "uvicorn-283@0.38.0"
       ]
@@ -2678,7 +2684,7 @@
         "pydocket-216@0.17.1",
         "pyperclip-221@1.11.0",
         "python-dotenv-227@1.2.1",
-        "rich-245@13.9.4",
+        "rich-246@13.9.4",
         "uvicorn-283@0.38.0",
         "websockets-291@15.0.1"
       ]
@@ -2708,7 +2714,7 @@
     {
       "ref": "gitdb-87@4.0.12",
       "dependsOn": [
-        "smmap-257@5.0.2"
+        "smmap-258@5.0.2"
       ]
     },
     {
@@ -2757,7 +2763,7 @@
         "httpcore-93@1.0.9",
         "idna-97@3.11",
         "pygments-217@2.19.2",
-        "rich-245@13.9.4"
+        "rich-246@13.9.4"
       ]
     },
     {
@@ -2791,7 +2797,7 @@
         "nest-asyncio-156@1.6.0",
         "packaging-186@25.0",
         "psutil-203@7.2.0",
-        "pyzmq-235@27.1.0",
+        "pyzmq-236@27.1.0",
         "tornado-274@6.5.4",
         "traitlets-276@5.14.3"
       ]
@@ -2807,7 +2813,7 @@
         "pexpect-192@4.9.0",
         "prompt-toolkit-200@3.0.52",
         "pygments-217@2.19.2",
-        "stack-data-264@0.6.3",
+        "stack-data-265@0.6.3",
         "traitlets-276@5.14.3"
       ]
     },
@@ -2898,11 +2904,11 @@
         "isoduration-105@20.11.0",
         "jsonpointer-116@3.0.0",
         "jsonschema-specifications-119@2025.9.1",
-        "referencing-238@0.36.2",
-        "rfc3339-validator-242@0.1.4",
-        "rfc3986-validator-243@0.1.1",
-        "rfc3987-syntax-244@1.1.0",
-        "rpds-py-249@0.30.0",
+        "referencing-239@0.36.2",
+        "rfc3339-validator-243@0.1.4",
+        "rfc3986-validator-244@0.1.1",
+        "rfc3987-syntax-245@1.1.0",
+        "rpds-py-250@0.30.0",
         "uri-template-281@1.3.0",
         "webcolors-288@25.10.0"
       ]
@@ -2911,15 +2917,15 @@
       "ref": "jsonschema-path-118@0.3.4",
       "dependsOn": [
         "pathable-190@0.4.4",
-        "pyyaml-234@6.0.3",
-        "referencing-238@0.36.2",
-        "requests-240@2.32.5"
+        "pyyaml-235@6.0.3",
+        "referencing-239@0.36.2",
+        "requests-241@2.32.5"
       ]
     },
     {
       "ref": "jsonschema-specifications-119@2025.9.1",
       "dependsOn": [
-        "referencing-238@0.36.2"
+        "referencing-239@0.36.2"
       ]
     },
     {
@@ -2938,7 +2944,7 @@
       "dependsOn": [
         "jupyter-core-123@5.9.1",
         "python-dateutil-226@2.9.0.post0",
-        "pyzmq-235@27.1.0",
+        "pyzmq-236@27.1.0",
         "tornado-274@6.5.4",
         "traitlets-276@5.14.3"
       ]
@@ -2952,7 +2958,7 @@
         "jupyter-core-123@5.9.1",
         "prompt-toolkit-200@3.0.52",
         "pygments-217@2.19.2",
-        "pyzmq-235@27.1.0",
+        "pyzmq-236@27.1.0",
         "traitlets-276@5.14.3"
       ]
     },
@@ -2969,10 +2975,10 @@
         "jsonschema-117@4.25.1",
         "packaging-186@25.0",
         "python-json-logger-228@4.0.0",
-        "pyyaml-234@6.0.3",
-        "referencing-238@0.36.2",
-        "rfc3339-validator-242@0.1.4",
-        "rfc3986-validator-243@0.1.1",
+        "pyyaml-235@6.0.3",
+        "referencing-239@0.36.2",
+        "rfc3339-validator-243@0.1.4",
+        "rfc3986-validator-244@0.1.1",
         "traitlets-276@5.14.3"
       ]
     },
@@ -2996,10 +3002,10 @@
         "nbformat-155@5.10.4",
         "packaging-186@25.0",
         "prometheus-client-199@0.23.1",
-        "pywinpty-233@3.0.2",
-        "pyzmq-235@27.1.0",
-        "send2trash-252@1.8.3",
-        "terminado-268@0.18.1",
+        "pywinpty-234@3.0.2",
+        "pyzmq-236@27.1.0",
+        "send2trash-253@1.8.3",
+        "terminado-269@0.18.1",
         "tornado-274@6.5.4",
         "traitlets-276@5.14.3",
         "websocket-client-290@1.9.0"
@@ -3008,8 +3014,8 @@
     {
       "ref": "jupyter-server-terminals-127@0.5.3",
       "dependsOn": [
-        "pywinpty-233@3.0.2",
-        "terminado-268@0.18.1"
+        "pywinpty-234@3.0.2",
+        "terminado-269@0.18.1"
       ]
     },
     {
@@ -3025,7 +3031,7 @@
         "jupyterlab-server-130@2.28.0",
         "notebook-shim-159@0.2.4",
         "packaging-186@25.0",
-        "setuptools-254@80.9.0",
+        "setuptools-255@80.9.0",
         "tornado-274@6.5.4",
         "traitlets-276@5.14.3"
       ]
@@ -3043,7 +3049,7 @@
         "jsonschema-117@4.25.1",
         "jupyter-server-126@2.17.0",
         "packaging-186@25.0",
-        "requests-240@2.32.5"
+        "requests-241@2.32.5"
       ]
     },
     {
@@ -3057,8 +3063,8 @@
         "jaraco-context-108@6.1.0",
         "jaraco-functools-109@4.4.0",
         "jeepney-111@0.9.0",
-        "pywin32-ctypes-232@0.2.3",
-        "secretstorage-251@3.5.0"
+        "pywin32-ctypes-233@0.2.3",
+        "secretstorage-252@3.5.0"
       ]
     },
     {
@@ -3132,9 +3138,9 @@
         "pydantic-settings-214@2.12.0",
         "pyjwt-218@2.10.1",
         "python-multipart-229@0.0.21",
-        "pywin32-231@311",
-        "sse-starlette-263@3.1.1",
-        "starlette-265@0.50.0",
+        "pywin32-232@311",
+        "sse-starlette-264@3.1.1",
+        "starlette-266@0.50.0",
         "typing-extensions-278@4.15.0",
         "typing-inspection-279@0.4.2",
         "uvicorn-283@0.38.0",
@@ -3158,7 +3164,7 @@
       "dependsOn": [
         "cryptography-57@46.0.3",
         "pyjwt-218@2.10.1",
-        "requests-240@2.32.5"
+        "requests-241@2.32.5"
       ]
     },
     {
@@ -3173,8 +3179,8 @@
         "azure-core-30@1.36.0",
         "certifi-48@2025.11.12",
         "isodate-104@0.7.2",
-        "requests-240@2.32.5",
-        "requests-oauthlib-241@2.0.0"
+        "requests-241@2.32.5",
+        "requests-oauthlib-242@2.0.0"
       ]
     },
     {
@@ -3231,7 +3237,7 @@
       "dependsOn": [
         "click-51@8.3.1",
         "joblib-114@1.5.3",
-        "regex-239@2025.11.3",
+        "regex-240@2025.11.3",
         "tqdm-275@4.67.1"
       ]
     },
@@ -3267,7 +3273,7 @@
         "httpx-95@0.28.1",
         "jiter-113@0.12.0",
         "pydantic-211@2.12.5",
-        "sniffio-258@1.3.1",
+        "sniffio-259@1.3.1",
         "tqdm-275@4.67.1",
         "typing-extensions-278@4.15.0"
       ]
@@ -3468,7 +3474,7 @@
       "dependsOn": [
         "numpy-160@2.4.0",
         "python-dateutil-226@2.9.0.post0",
-        "pytz-230@2025.2",
+        "pytz-231@2025.2",
         "tzdata-280@2025.3"
       ]
     },
@@ -3565,7 +3571,7 @@
         "keyring-132@25.7.0",
         "pathvalidate-191@3.3.1",
         "py-key-value-shared-208@0.3.0",
-        "redis-237@7.1.0"
+        "redis-238@7.1.0"
       ]
     },
     {
@@ -3630,8 +3636,8 @@
         "prometheus-client-199@0.23.1",
         "py-key-value-aio-207@0.3.0",
         "python-json-logger-228@4.0.0",
-        "redis-237@7.1.0",
-        "rich-245@13.9.4",
+        "redis-238@7.1.0",
+        "rich-246@13.9.4",
         "typer-277@0.21.1",
         "typing-extensions-278@4.15.0"
       ]
@@ -3655,7 +3661,7 @@
         "isort-106@7.0.0",
         "mccabe-143@0.7.0",
         "platformdirs-195@4.5.1",
-        "tomlkit-272@0.14.0"
+        "tomlkit-273@0.14.0"
       ]
     },
     {
@@ -3699,7 +3705,7 @@
     {
       "ref": "python-dateutil-226@2.9.0.post0",
       "dependsOn": [
-        "six-256@1.17.0"
+        "six-257@1.17.0"
       ]
     },
     {
@@ -3715,54 +3721,58 @@
       "dependsOn": []
     },
     {
-      "ref": "pytz-230@2025.2",
+      "ref": "python-toon-230@0.1.3",
       "dependsOn": []
     },
     {
-      "ref": "pywin32-231@311",
+      "ref": "pytz-231@2025.2",
       "dependsOn": []
     },
     {
-      "ref": "pywin32-ctypes-232@0.2.3",
+      "ref": "pywin32-232@311",
       "dependsOn": []
     },
     {
-      "ref": "pywinpty-233@3.0.2",
+      "ref": "pywin32-ctypes-233@0.2.3",
       "dependsOn": []
     },
     {
-      "ref": "pyyaml-234@6.0.3",
+      "ref": "pywinpty-234@3.0.2",
       "dependsOn": []
     },
     {
-      "ref": "pyzmq-235@27.1.0",
+      "ref": "pyyaml-235@6.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pyzmq-236@27.1.0",
       "dependsOn": [
         "cffi-49@2.0.0"
       ]
     },
     {
-      "ref": "rdflib-236@7.5.0",
+      "ref": "rdflib-237@7.5.0",
       "dependsOn": [
         "pyparsing-220@3.3.1"
       ]
     },
     {
-      "ref": "redis-237@7.1.0",
+      "ref": "redis-238@7.1.0",
       "dependsOn": []
     },
     {
-      "ref": "referencing-238@0.36.2",
+      "ref": "referencing-239@0.36.2",
       "dependsOn": [
         "attrs-21@25.4.0",
-        "rpds-py-249@0.30.0"
+        "rpds-py-250@0.30.0"
       ]
     },
     {
-      "ref": "regex-239@2025.11.3",
+      "ref": "regex-240@2025.11.3",
       "dependsOn": []
     },
     {
-      "ref": "requests-240@2.32.5",
+      "ref": "requests-241@2.32.5",
       "dependsOn": [
         "certifi-48@2025.11.12",
         "charset-normalizer-50@3.4.4",
@@ -3771,130 +3781,130 @@
       ]
     },
     {
-      "ref": "requests-oauthlib-241@2.0.0",
+      "ref": "requests-oauthlib-242@2.0.0",
       "dependsOn": [
         "oauthlib-161@3.3.1",
-        "requests-240@2.32.5"
+        "requests-241@2.32.5"
       ]
     },
     {
-      "ref": "rfc3339-validator-242@0.1.4",
+      "ref": "rfc3339-validator-243@0.1.4",
       "dependsOn": [
-        "six-256@1.17.0"
+        "six-257@1.17.0"
       ]
     },
     {
-      "ref": "rfc3986-validator-243@0.1.1",
+      "ref": "rfc3986-validator-244@0.1.1",
       "dependsOn": []
     },
     {
-      "ref": "rfc3987-syntax-244@1.1.0",
+      "ref": "rfc3987-syntax-245@1.1.0",
       "dependsOn": [
         "lark-134@1.3.1"
       ]
     },
     {
-      "ref": "rich-245@13.9.4",
+      "ref": "rich-246@13.9.4",
       "dependsOn": [
         "markdown-it-py-139@4.0.0",
         "pygments-217@2.19.2"
       ]
     },
     {
-      "ref": "rich-rst-246@1.3.2",
+      "ref": "rich-rst-247@1.3.2",
       "dependsOn": [
         "docutils-69@0.22.4",
-        "rich-245@13.9.4"
+        "rich-246@13.9.4"
       ]
     },
     {
-      "ref": "rich-toolkit-247@0.17.1",
+      "ref": "rich-toolkit-248@0.17.1",
       "dependsOn": [
         "click-51@8.3.1",
-        "rich-245@13.9.4",
+        "rich-246@13.9.4",
         "typing-extensions-278@4.15.0"
       ]
     },
     {
-      "ref": "rignore-248@0.7.6",
+      "ref": "rignore-249@0.7.6",
       "dependsOn": []
     },
     {
-      "ref": "rpds-py-249@0.30.0",
+      "ref": "rpds-py-250@0.30.0",
       "dependsOn": []
     },
     {
-      "ref": "ruamel-yaml-250@0.19.1",
+      "ref": "ruamel-yaml-251@0.19.1",
       "dependsOn": []
     },
     {
-      "ref": "secretstorage-251@3.5.0",
+      "ref": "secretstorage-252@3.5.0",
       "dependsOn": [
         "cryptography-57@46.0.3",
         "jeepney-111@0.9.0"
       ]
     },
     {
-      "ref": "send2trash-252@1.8.3",
+      "ref": "send2trash-253@1.8.3",
       "dependsOn": []
     },
     {
-      "ref": "sentry-sdk-253@2.50.0",
+      "ref": "sentry-sdk-254@2.50.0",
       "dependsOn": [
         "certifi-48@2025.11.12",
         "urllib3-282@2.6.2"
       ]
     },
     {
-      "ref": "setuptools-254@80.9.0",
+      "ref": "setuptools-255@80.9.0",
       "dependsOn": []
     },
     {
-      "ref": "shellingham-255@1.5.4",
+      "ref": "shellingham-256@1.5.4",
       "dependsOn": []
     },
     {
-      "ref": "six-256@1.17.0",
+      "ref": "six-257@1.17.0",
       "dependsOn": []
     },
     {
-      "ref": "smmap-257@5.0.2",
+      "ref": "smmap-258@5.0.2",
       "dependsOn": []
     },
     {
-      "ref": "sniffio-258@1.3.1",
+      "ref": "sniffio-259@1.3.1",
       "dependsOn": []
     },
     {
-      "ref": "sortedcontainers-259@2.4.0",
+      "ref": "sortedcontainers-260@2.4.0",
       "dependsOn": []
     },
     {
-      "ref": "soupsieve-260@2.8.1",
+      "ref": "soupsieve-261@2.8.1",
       "dependsOn": []
     },
     {
-      "ref": "sqlalchemy-261@2.0.46",
+      "ref": "sqlalchemy-262@2.0.46",
       "dependsOn": [
         "greenlet-90@3.3.1",
         "typing-extensions-278@4.15.0"
       ]
     },
     {
-      "ref": "sqlalchemy-utils-262@0.42.1",
+      "ref": "sqlalchemy-utils-263@0.42.1",
       "dependsOn": [
-        "sqlalchemy-261@2.0.46"
+        "sqlalchemy-262@2.0.46"
       ]
     },
     {
-      "ref": "sse-starlette-263@3.1.1",
+      "ref": "sse-starlette-264@3.1.1",
       "dependsOn": [
         "anyio-12@4.12.0",
-        "starlette-265@0.50.0"
+        "starlette-266@0.50.0"
       ]
     },
     {
-      "ref": "stack-data-264@0.6.3",
+      "ref": "stack-data-265@0.6.3",
       "dependsOn": [
         "asttokens-19@3.0.1",
         "executing-73@2.2.1",
@@ -3902,13 +3912,13 @@
       ]
     },
     {
-      "ref": "starlette-265@0.50.0",
+      "ref": "starlette-266@0.50.0",
       "dependsOn": [
         "anyio-12@4.12.0"
       ]
     },
     {
-      "ref": "streamlit-266@1.52.2",
+      "ref": "streamlit-267@1.52.2",
       "dependsOn": [
         "altair-9@6.0.0",
         "blinker-46@1.9.0",
@@ -3922,49 +3932,45 @@
         "protobuf-202@6.33.2",
         "pyarrow-209@22.0.0",
         "pydeck-215@0.9.1",
-        "requests-240@2.32.5",
-        "tenacity-267@9.1.2",
-        "toml-271@0.10.2",
+        "requests-241@2.32.5",
+        "tenacity-268@9.1.2",
+        "toml-272@0.10.2",
         "tornado-274@6.5.4",
         "typing-extensions-278@4.15.0",
         "watchdog-285@6.0.0"
       ]
     },
     {
-      "ref": "tenacity-267@9.1.2",
+      "ref": "tenacity-268@9.1.2",
       "dependsOn": []
     },
     {
-      "ref": "terminado-268@0.18.1",
+      "ref": "terminado-269@0.18.1",
       "dependsOn": [
         "ptyprocess-205@0.7.0",
-        "pywinpty-233@3.0.2",
+        "pywinpty-234@3.0.2",
         "tornado-274@6.5.4"
       ]
     },
     {
-      "ref": "tiktoken-269@0.12.0",
+      "ref": "tiktoken-270@0.12.0",
       "dependsOn": [
-        "regex-239@2025.11.3",
-        "requests-240@2.32.5"
+        "regex-240@2025.11.3",
+        "requests-241@2.32.5"
       ]
     },
     {
-      "ref": "tinycss2-270@1.4.0",
+      "ref": "tinycss2-271@1.4.0",
       "dependsOn": [
         "webencodings-289@0.5.1"
       ]
     },
     {
-      "ref": "toml-271@0.10.2",
+      "ref": "toml-272@0.10.2",
       "dependsOn": []
     },
     {
-      "ref": "tomlkit-272@0.14.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "toon-python-273@0.1.2",
+      "ref": "tomlkit-273@0.14.0",
       "dependsOn": []
     },
     {
@@ -3985,8 +3991,8 @@
       "ref": "typer-277@0.21.1",
       "dependsOn": [
         "click-51@8.3.1",
-        "rich-245@13.9.4",
-        "shellingham-255@1.5.4",
+        "rich-246@13.9.4",
+        "shellingham-256@1.5.4",
         "typing-extensions-278@4.15.0"
       ]
     },
@@ -4020,7 +4026,7 @@
         "h11-92@0.16.0",
         "httptools-94@0.7.1",
         "python-dotenv-227@1.2.1",
-        "pyyaml-234@6.0.3",
+        "pyyaml-235@6.0.3",
         "uvloop-284@0.22.1",
         "watchfiles-286@1.1.1",
         "websockets-291@15.0.1"
@@ -4134,15 +4140,15 @@
         "python-dotenv-227@1.2.1",
         "python-json-logger-228@4.0.0",
         "python-multipart-229@0.0.21",
-        "pytz-230@2025.2",
-        "rdflib-236@7.5.0",
-        "six-256@1.17.0",
-        "sqlalchemy-261@2.0.46",
-        "sqlalchemy-utils-262@0.42.1",
-        "streamlit-266@1.52.2",
-        "tenacity-267@9.1.2",
-        "tiktoken-269@0.12.0",
-        "toon-python-273@0.1.2",
+        "python-toon-230@0.1.3",
+        "pytz-231@2025.2",
+        "rdflib-237@7.5.0",
+        "six-257@1.17.0",
+        "sqlalchemy-262@2.0.46",
+        "sqlalchemy-utils-263@0.42.1",
+        "streamlit-267@1.52.2",
+        "tenacity-268@9.1.2",
+        "tiktoken-270@0.12.0",
         "uvicorn-283@0.38.0",
         "watchdog-285@6.0.0"
       ]
